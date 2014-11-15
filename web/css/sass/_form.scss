@@ -1,0 +1,70 @@
+/* Form.scss *//*searchbox.css*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+
+@mixin textInput ($bgcolor, $color, $width, $placeholder) {
+    display: inline;
+    
+    height: 35px;
+    width: $width;
+    
+    margin: 0 5px;
+    padding: 5px 15px;
+    
+    background-color: $bgcolor;
+    color: $color;
+    border: none;
+    
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    &::-webkit-input-placeholder {
+        color: $placeholder;
+    }
+    &:-moz-placeholder {
+        /* FF 4-18 */
+        color: $placeholder;
+    }
+    &::-moz-placeholder {
+        /* FF 19+ */
+        color: $placeholder;
+    }
+    &:-ms-input-placeholder {
+        /* IE 10+ */
+        color: $placeholder;
+    }
+}
+
+.form-text { @include textInput (rgba(250, 250, 250, 0.5), #1D1D1D, 100%, rgba(10, 10, 10, 0.5)) }
+
+.form-text-inverse { @include textInput (rgba(10, 10, 10, 0.5), #F0F0F0, 100%, rgba(240, 240, 240, 0.5)) }
+
+.max600 { max-width: 600px; }
+
+.fa { 
+    margin: 5px;
+    color: #FFF;
+}
+
+.contact-icon {
+    color: #FFF;
+    
+    .fa {
+        color: #FFF;
+    }
+    
+    h4, h5 {
+        color: #FFF;
+    }
+    
+    &:hover {
+        .fa {
+            color: #C6C6C6;
+        }
+    }
+}
+

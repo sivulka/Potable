@@ -1,0 +1,379 @@
+/* INTRODUCTION.CSS */
+.mainCover{    
+    display: table;
+    width: 100%;
+    height: 100%;
+    
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: url(../images/ms-bg.jpg) no-repeat center center scroll;
+	
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.mainCover .container{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.mainCover .container .content{
+}
+
+.mainCover h1{
+    font-weight: 300;
+    color: #FFF;
+    
+    margin: 75px 5px 10px 5px;
+}
+
+.mainCover h2{
+    font-weight: 600;
+    color: #FFF;
+    
+    margin: 10px 5px 65px 5px;
+}
+
+.downArrow-container{
+    
+    max-width: 100%;
+    width: 100%;
+}
+
+.downArrow-host{ 
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    width: 112px;
+    height: 70px;
+    margin-left: -56px;
+    
+    -webkit-transition: background .3s ease-in-out,padding .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out,padding .3s ease-in-out;
+    transition: background .3s ease-in-out,padding .3s ease-in-out;
+}
+
+.downArrow-host:hover{
+    padding-top: 10px;
+}
+
+.downArrow{
+    width: 100%;
+    height: 100%;
+    
+    background: none;
+    background-image: url("../images/DownArrow.png");
+    
+    border: none;
+    cursor: pointer;
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+/*
+.downArrow img{
+    width: 112px;
+    height: 70px;
+    
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+*/
+
+@media screen and (max-width: 570px) {
+    .mainCover h1{
+        font-size: 48px;
+    }
+    
+    .mainCover h2{
+        font-size: 16px;
+    }
+    
+    .section{
+        padding: 10px 5px;
+    }
+    
+    .section .intro{
+        width: 300px;
+    }
+    
+    .section .intro h1{
+        font-size: 36px;
+    }
+    
+    .skillset h1{
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 570px) {
+    .mainCover h1{
+        font-size: 64px;
+    }
+    
+    .mainCover h2{
+        font-size: 20px;
+    }
+    
+    .section{
+        padding: 20px 15px;
+    }
+    
+    .section .intro{
+        width: 500px;
+    }
+    
+    .section .intro h1{
+        font-size: 42px;
+    }
+    
+    .skillset h1{
+        font-size: 36px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .mainCover h1{
+        font-size: 72px;
+    }
+    
+    .mainCover h2{
+        font-size: 24px;
+    }
+    
+    .section{
+        padding: 15px 45px;
+    }
+    
+    .section .intro{
+        width: 550px;
+    }
+    
+    .section .intro h1{
+        font-size: 48px;
+    }
+    
+    .skillset h1{
+        font-size: 42px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mainCover h1{
+        font-size: 84px;
+    }
+    
+    .mainCover h2{
+        font-size: 26px;
+    }
+    
+    .section{
+        padding: 15px 50px;
+    }
+    
+    .section .intro{
+        width: 600px;
+    }
+    
+    .section .intro h1{
+        font-size: 54px;
+    }
+    
+    .skillset h1{
+        font-size: 48px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .mainCover h1{
+        font-size: 96px;
+    }
+    
+    .mainCover h2{
+        font-size: 32px;
+    }
+    
+    .section{
+        padding: 20px auto;
+    }
+    
+    .section .intro{
+        width: 650px;
+    }
+    
+    .section .intro h1{
+        font-size: 60px;
+    }
+    
+    .skillset h1{
+        font-size: 54px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .mainCover h1{
+        font-size: 108px;
+    }
+    
+    .mainCover h2{
+        font-size: 36px;
+    }
+    
+    .section{
+        padding: 20px auto;
+    }
+    
+    .section .intro{
+        width: 720px;
+    }
+    
+    .section .intro h1{
+        font-size: 66px;
+    }
+    
+    .skillset h1{
+        font-size: 60px;
+    }
+}
+
+.section{
+    margin: 0;
+}
+
+.section .intro{
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.section .intro h1{
+    margin: 5px auto;
+    font-weight: 400;
+    color: #000;
+}
+
+.aboutme{
+    background-color: #F0F0F0;
+}
+
+.aboutme-text h3{
+    letter-spacing: 0.05em;
+}
+
+.skills{
+    background-color: #F8F8F8;
+}
+.skillset{
+    margin: 50px auto;
+}
+
+.skillset h1{
+    font-weight: 300;
+}
+
+.skills-category{
+    text-align: center;
+}
+
+.proficiency-most{
+    text-align: left;
+}
+
+.proficiency-least{
+    text-align: right;
+}
+
+.skills-bar{
+    height: 50px;
+    width: 100%;
+}
+
+.bar-red{
+    background-color: #e74c3c;
+}
+
+.bar-orange{
+    background-color: #e67e22;
+}
+
+.bar-yellow{
+    background-color: #f1c40f;
+}
+
+.bar-green{
+    background-color: #2ecc71;
+}
+
+.bar-darkgreen{
+    background-color: #1abc9c;
+}
+
+.bar-blue{
+    background-color: #3498db;
+}
+
+.bar-darkblue{
+    background-color: #2980b9;
+}
+
+.bar-purple{
+    background-color: #9b59b6;
+}
+
+.bar-warm-red{
+    background-color: #d5422f;
+}
+
+.bar-warm-darkred{
+    background-color: #c0392b;
+}
+
+.bar-warm-orange{
+    background-color: #d35400;
+}
+
+.bar-warm-yellow{
+    background-color: #f39c12;
+}
+
+.bar-env-lightgreen{
+    background-color: #109e20;
+}
+
+.bar-env-green{
+    background-color: #27ae60;
+}
+
+.bar-env-greensea{
+    background-color: #16a085;
+}
+
+.bar-cool-blue{
+    background-color: #3487db;
+}
+
+.bar-cool-lightblue{
+    background-color: #3478db;
+}
+
+.bar-cool-medblue{
+    background-color: #3070bb;
+}
+
+.bar-cool-darkblue{
+    background-color: #2965ab;
+}
+
+.img-container{
+    text-align: center;
+}

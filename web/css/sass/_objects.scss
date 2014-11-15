@@ -1,0 +1,76 @@
+/* Objects.scss */
+
+@mixin box ($size, $margin, $padding){
+    width: $size;
+    height: $size;
+    line-height: $size - 20px;
+    margin: $margin;
+    padding: $padding;
+}
+
+.themes-box { 
+    @include box (250px, auto, 15px);
+    text-align: center;
+}
+
+/* LINES */
+@mixin line ($color) {
+    display: block;
+    height: 1px;
+    border-top: 1px solid $color;
+    border-color: $color;
+}
+
+.line-red { @include line (#c0392b); }
+
+.line-blue { @include line (#3498db); }
+
+.line-green { @include line (#2ecc71); }
+
+.line-purple { @include line (#9b59b6); }
+
+.line-white { @include line (#ecf0f1); }
+
+.line-orange { @include line (#e67e22); }
+
+.line-yellow { @include line (#f1c40f); }
+
+@mixin gradient-line ($color, $dest) {
+    height: 1px;
+    background: $color;
+    background-image: -webkit-linear-gradient(left, $dest, $color, $dest); 
+    background-image:    -moz-linear-gradient(left, $dest, $color, $dest); 
+    background-image:     -ms-linear-gradient(left, $dest, $color, $dest); 
+    background-image:      -o-linear-gradient(left, $dest, $color, $dest); 
+}
+/* GRADIENT LINES */
+.line-gradient-red { @include gradient-line (#c0392b, #ccc); }
+
+.line-gradient-blue { @include gradient-line (#2f64ea, #ccc); }
+
+.line-gradient-green { @include gradient-line (#63c591, #ccc); }
+
+/* INSERT BASED ON CONTEXT */
+.line-red-dark { @include gradient-line (#c0392b, #1D1D1D); }
+
+.line-blue-dark { @include gradient-line (#3498db, #1D1D1D); }
+
+.line-green-dark { @include gradient-line (#2ecc71, #1D1D1D); }
+
+
+/* SLIDES */
+.bar {
+    height: 25px;
+    max-width: 100%;
+    
+    margin-top: 5px;
+}
+
+.vertical-line {
+    position: absolute;
+    width: 1px;
+    max-height: 100%;
+    
+    left: 50%;
+    margin-left: -1px;
+}
