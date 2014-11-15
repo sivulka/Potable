@@ -87,6 +87,8 @@ body {
     
     margin: 0;
     padding: 0;
+    
+    background-color: #ecf0f1;
     /* font-family: $Glober; */
     font-weight: $light;
 }
@@ -138,7 +140,10 @@ h1, p {
 .opensans { font-family: $opensans; }
 .lato { font-family: $lato; }
 .glober { font-family: $glober; }
-.gandhisans { font-family: $gandhisans; }
+.gandhisans { 
+    font-family: $gandhisans; 
+    font-weight: $light;
+}
 
 /* LOAD OTHER FILES */
 @import "sass/_attr";
