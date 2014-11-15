@@ -1,10 +1,26 @@
 /* Monomo.scss */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:400,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+@font-face {
+  font-family: "Glober";
+  src: url("../fonts/GloberThin.otf") format("opentype");
+  font-weight: 300; }
+@font-face {
+  font-family: "Glober";
+  src: url("../fonts/GloberSemiBold.otf") format("opentype");
+  font-weight: 400; }
+@font-face {
+  font-family: "Gandhi Sans";
+  src: url("../fonts/GandhiSans-Regular.otf") format("opentype");
+  font-weight: 300; }
+@font-face {
+  font-family: "Gandhi Sans";
+  src: url("../fonts/GandhiSans-Bold.otf") format("opentype");
+  font-weight: 400; }
 /* Variables */
 /* Font Variables */
 /* NOTE: Mod stands for modifier */
 /* Margins */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 html {
   max-width: 100%;
   width: 100%;
@@ -18,7 +34,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Lato", sans-serif;
+  /* font-family: $Glober; */
   font-weight: 300; }
 
 a:hover {
@@ -84,6 +100,7 @@ p {
   font-size: 2.2em; }
 
 h1, h2, h3, h4, h5, h6, p {
+  /* font-family: "Glober", sans-serif; */
   margin: 0;
   padding: 0; }
 
@@ -103,6 +120,12 @@ h1, p {
 
 .lato {
   font-family: "Lato", sans-serif; }
+
+.glober {
+  font-family: "Glober", sans-serif; }
+
+.gandhisans {
+  font-family: "Gandhi Sans", sans-serif; }
 
 /* LOAD OTHER FILES */
 /* Attr.scss */
@@ -282,12 +305,12 @@ h1, p {
 .project {
   display: table;
   width: 100%;
-  height: 568px; }
+  height: 373px; }
 
 .project-half {
   display: table;
   width: 100%;
-  height: 282px;
+  height: 373px;
   margin-left: 2px;
   margin-bottom: 2px; }
 
@@ -301,7 +324,7 @@ h1, p {
 .project-1-3 {
   display: table;
   width: 100%;
-  height: 193px;
+  height: 373px;
   margin-left: 2px;
   margin-bottom: 2px; }
 
@@ -365,6 +388,32 @@ h1, p {
   .exp {
     max-width: 70%; } }
 @media screen and (min-width: 1024px) {
+  .project {
+    display: table;
+    width: 100%;
+    height: 568px; }
+
+  .project-half {
+    display: table;
+    width: 100%;
+    height: 282px;
+    margin-left: 2px;
+    margin-bottom: 2px; }
+
+  .project-2-3 {
+    display: table;
+    width: 100%;
+    height: 373px;
+    margin-left: 2px;
+    margin-bottom: 2px; }
+
+  .project-1-3 {
+    display: table;
+    width: 100%;
+    height: 193px;
+    margin-left: 2px;
+    margin-bottom: 2px; }
+
   .projects-container {
     width: 1024px; }
 

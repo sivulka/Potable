@@ -1,10 +1,36 @@
 /* Monomo.scss */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:400,300,600,700);
 
+@font-face {
+    font-family: "Glober";
+    src: url("../fonts/GloberThin.otf") format("opentype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Glober";
+    src: url("../fonts/GloberSemiBold.otf") format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Gandhi Sans";
+    src: url("../fonts/GandhiSans-Regular.otf") format("opentype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Gandhi Sans";
+    src: url("../fonts/GandhiSans-Bold.otf") format("opentype");
+    font-weight: 400;
+}
+
 /* Variables */
     /* Font Variables */
     $opensans: 'Open Sans', sans-serif;
     $lato: 'Lato', sans-serif;
+    $glober: 'Glober', sans-serif;
+    $gandhisans: 'Gandhi Sans', sans-serif;
     $light: 300;
     $normal: 400;
     $semibold: 600;
@@ -61,7 +87,7 @@ body {
     
     margin: 0;
     padding: 0;
-    font-family: $lato;
+    /* font-family: $Glober; */
     font-weight: $light;
 }
 
@@ -93,6 +119,7 @@ p { @include font ($p - $p-mod, 0); }
 .title { @include font ($starter - $starter-mod, 0); }
 
 h1, h2, h3, h4, h5, h6, p {
+    /* font-family: "Glober", sans-serif; */
     margin: 0;
     padding: 0;
 }
@@ -110,6 +137,8 @@ h1, p {
 
 .opensans { font-family: $opensans; }
 .lato { font-family: $lato; }
+.glober { font-family: $glober; }
+.gandhisans { font-family: $gandhisans; }
 
 /* LOAD OTHER FILES */
 @import "sass/_attr";
