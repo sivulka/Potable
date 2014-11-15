@@ -1,0 +1,90 @@
+/* MS.CSS */
+.ms-expander{
+	margin-left: auto;
+	margin-right: auto;
+	width: 150px;
+}
+
+.ms-btn-container{
+	width: 150px;
+	height: 150px;
+}
+
+.ms-btn-red{
+	margin-bottom: 1.5%;
+	height: 48.5%;
+	width: 48.5%;
+	background-color: #f1511b;
+	transition: all 200ms ease-in-out 0s;
+}
+
+.ms-btn-green{
+	margin-bottom: 1.5%;
+	height: 48.5%;
+	width: 48.5%;
+	background-color: #91c300;
+	transition: all 200ms ease-in-out 0s;
+    
+    opacity: 0.2;
+}
+
+.ms-btn-blue{
+	margin-top: 1.5%;
+	height: 48.5%;
+	width: 48.5%;
+	background-color: #00b4f1;
+	transition: all 200ms ease-in-out 0s;
+}
+
+.ms-btn-yellow{
+	margin-top: 1.5%;
+	height: 48.5%;
+	width: 48.5%;
+	background-color: #ffc300;
+	transition: all 200ms ease-in-out 0s;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-right{
+	float: right;
+}
+
+.rotateArrow{
+	margin-top: 20px;
+	transition: all 200ms ease-in-out 0s;
+	-webkit-transform: rotate(-45deg); 
+    -moz-transform: rotate(-45deg);  
+	
+	position: relative;
+}
+
+@media(min-width:720px) {
+    .ms-link, .ms-btn-container{
+		height: 119px;
+		width: 119px;
+	}
+}
+ 
+ @media(min-width:1080px) {
+     .ms-link, .ms-btn-container{
+ 		height: 150px;
+ 		width: 150px;
+ 	}
+ }
+ 
+ @media(min-width:1480px) {
+     .ms-link, .ms-btn-container{
+ 		height: 191px;
+ 		width: 191px;
+ 	}
+ }
+ 
+ @media(min-width:1920px) {
+     .ms-link, .ms-btn-container{
+ 		height: 220px;
+ 		width: 220px;
+ 	}
+ }

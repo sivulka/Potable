@@ -1,0 +1,35 @@
+/* Theme.scss */
+
+@mixin theme ($background, $color) {
+    background-color: $background;
+    color: $color;
+}
+.themes-dark { @include theme (#1D1D1D, #FFF); }
+
+.themes-light-blue { @include theme (#3498db, #FFF); }
+
+.themes-dark-blue { @include theme (#2980b9, #FFF); }
+
+.themes-green { @include theme (#27ae60, #FFF); }
+
+.themes-yellow { @include theme (#f1c40f, #FFF); }
+
+.themes-orange { @include theme (#e67e22, #FFF); }
+
+.themes-red { @include theme (#c0392b, #FFF); }
+
+.themes-yellow { @include theme (#f39c12, #FFF); }
+
+.themes-amethyst { @include theme (#9b59b6, #FFF); }
+
+.themes-purple { @include theme (#8e44ad, #FFF); }
+
+.themes-white { @include theme (#ecf0f1, #000); }
+
+.themes-yellow { @include theme (#f39c12, #FFF); }
+
+.themes-gray { @include theme (#95a5a6, #000); }
+
+.themes-dark-gray { @include theme (#7f8c8d, #000); }
+
+.themes-midnight { @include theme (#2c3e50, #FFF); }

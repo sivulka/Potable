@@ -1,0 +1,47 @@
+/* Attr.scss */
+.center {
+    margin: auto;
+    padding: auto;
+    text-align: center;
+}
+
+.scenter{
+    margin: auto;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.skills-margin {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.inline {
+    display: inline;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.half-display {
+    width: 50%;
+}

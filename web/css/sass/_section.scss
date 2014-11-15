@@ -1,0 +1,214 @@
+/* Section.scss */
+.section {
+    padding: 75px 0px;
+    .head{
+        text-align: center;
+        
+        .header{
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.img-container {
+    text-align: center;
+    line-height: 100%;
+}
+
+.img-profile {
+    border-radius: 50%;
+}
+
+#projects {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.pure-g {
+    margin-bottom: 2px;
+}
+
+.projects-container {
+    max-width: 100%;
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project {
+    display: table;
+    width: 100%;
+    height: 373px;
+}
+
+.project-half {
+    display: table;
+    width: 100%;
+    height: 373px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+
+.project-2-3 {
+    display: table;
+    width: 100%;
+    height: 373px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+
+.project-1-3 {
+    display: table;
+    width: 100%;
+    height: 373px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+
+.project-header-container {
+    display: table-cell;
+    vertical-align: bottom;
+    padding: 5px 15px 15px 15px;
+    background-color: rgba(29, 29, 29, 0.4);
+}
+
+.project-name {
+    padding: 5px;
+}
+
+.project-desc {
+    padding-left: 5px;
+}
+
+@mixin project-background ($url) {
+    background: url($url) no-repeat center top scroll;
+    background-size: 100% auto;
+}
+
+#Projects-Monomo {
+    @include project-background ("../../images/Project/Monomo.png");
+}
+
+#Projects-AbstraCTF {
+    @include project-background ("../../images/Project/AbstraCTF.png");
+}
+
+#Projects-SeedingRocks {
+    @include project-background ("../../images/Project/SeedingRocks.png");
+}
+
+#Projects-Twerkopter {
+    @include project-background ("../../images/Project/Twerkopter.png");
+}
+
+#Projects-BCAGPA {
+    @include project-background ("../../images/Project/BCAGPA.png");
+}
+
+#Projects-AinosEnsemble {
+    @include project-background ("../../images/Project/AinosEnsemble.png");
+}
+
+#Projects-TileRealms {
+    background: url("../../images/Project/TileRealms.png") no-repeat center center scroll;
+    background-size: 100% auto;
+}
+
+
+.exp {
+    max-width: 100%;
+    border-left: 7px solid #2c3e50;
+    padding: 15px 5%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    a {
+        font-weight: 400;
+        color: #f39c12;
+    }
+}
+
+.exp-date {
+    margin-bottom: 7px;
+}
+
+@media screen and (min-width: 568px)
+{
+    .projects-container {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px)
+{
+    .exp {
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width: 1024px)
+{
+    .project {
+        display: table;
+        width: 100%;
+        height: 568px;
+    }
+
+    .project-half {
+        display: table;
+        width: 100%;
+        height: 282px;
+        margin-left: 2px;
+        margin-bottom: 2px;
+    }
+
+    .project-2-3 {
+        display: table;
+        width: 100%;
+        height: 373px;
+        margin-left: 2px;
+        margin-bottom: 2px;
+    }
+
+    .project-1-3 {
+        display: table;
+        width: 100%;
+        height: 193px;
+        margin-left: 2px;
+        margin-bottom: 2px;
+    }
+    
+    .projects-container {
+        width: 1024px;
+    }
+    
+    .exp {
+        max-width: 60%;
+    }
+}
+
+@media screen and (min-width: 1280px)
+{
+    .projects-container {
+        width: 1168px;
+    }
+    
+    .exp {
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 1440px)
+{
+    .projects-container {
+        width: 1280px;
+    }
+}
+
+@media screen and (min-width: 1920px)
+{
+    .projects-container {
+        width: 1440px;
+    }
+}

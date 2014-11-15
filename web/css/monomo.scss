@@ -1,0 +1,222 @@
+/* Monomo.scss */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:400,300,600,700);
+
+/* Variables */
+    /* Font Variables */
+    $opensans: 'Open Sans', sans-serif;
+    $lato: 'Lato', sans-serif;
+    $light: 300;
+    $normal: 400;
+    $semibold: 600;
+    $bold: 700;
+
+    $h1: 2.5em;
+    $h2: 1.8em;
+    $h3: 1.5em;
+    $h4: 1.1em;
+    $h5: 1.01em;
+    $h6: 0.85em;
+    $p: 1.2em;
+    
+    $title: 3.3em;
+    $starter: 2.5em;
+
+    /* NOTE: Mod stands for modifier */
+    $h1-mod: 0.125em;
+    $h2-mod: 0.09em;
+    $h3-mod: 0.07em;
+    $h4-mod: 0.06em;
+    $h5-mod: 0.04em;
+    $h6-mod: 0.01em;
+    $p-mod: 0.01em;
+
+    $title-mod: 0.8em;
+    $starter-mod: 0.3em;
+
+    /* Margins */
+    $h1-p: 1em;
+    $h2-p: 0.75em;
+    $h3-p: 0.45em;
+    $h4-p: 0.3em;
+    $h5-p: 0.2em;
+    $h6-p: 0.1em;
+    $p-p: 0.02em;
+
+    $title-p: 0.27em;
+    $starter-p: 0.19em;
+
+html {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    
+    margin: 0;
+    padding: 0;
+    font-family: $lato;
+    font-weight: $light;
+}
+
+a:hover{ text-decoration:none; }
+a:link{ text-decoration:none; }
+a:visited{ text-decoration:none; }
+a:active{ text-decoration:none; }
+
+ul{ list-style-type: none; }
+
+@mixin font ($fontsize, $margin) {
+    margin: margin;
+    padding: 0;
+    
+    font-size: $fontsize;
+}
+
+/* This is REDUNDANT, but it's for formatting purposes */
+h1 { @include font ($h1 - $h1-mod, 0); }
+h2 { @include font ($h2 - $h2-mod, 0); }
+h3 { @include font ($h3 - $h3-mod, 0); }
+h4 { @include font ($h4 - $h4-mod, 0); }
+h5 { @include font ($h5 - $h5-mod, 0); }
+h6 { @include font ($h6 - $h6-mod, 0); }
+p { @include font ($p - $p-mod, 0); }
+
+/* Extra Font Classes */
+.title { @include font ($title - $title-mod, 0); }
+.title { @include font ($starter - $starter-mod, 0); }
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    margin: 1px;
+    padding: 0;
+}
+
+.starter { font-weight: light; }
+h1, p { 
+    font-family: $opensans; 
+    font-weight: $light;
+}
+
+.opensans { font-family: $opensans; }
+.lato { font-family: $lato; }
+
+/* LOAD OTHER FILES */
+@import "sass/_attr";
+@import "sass/_nav";
+@import "sass/_intro";
+@import "sass/_section";
+@import "sass/_buttons";
+@import "sass/_theme";
+@import "sass/_objects";
+@import "sass/_form";
+
+
+/* RESPONSIVE */
+@media screen and (min-width: 480px)
+{
+    h1 { @include font ($h1, $h1-p); }
+    h2 { @include font ($h2, $h2-p); }
+    h3 { @include font ($h3, $h3-p); }
+    h4 { @include font ($h4, $h4-p); }
+    h5 { @include font ($h5, $h5-p); }
+    h6 { @include font ($h6, $h6-p); }
+    p { @include font ($p, $p-p); }
+    
+    .title { @include font ($title, $title-p); }
+    .starter { @include font ($starter, $starter-p); }
+}
+
+@media screen and (min-width: 640px)
+{
+    h1 { @include font ($h1 + $h1-mod, $h1-p * 2); }
+    h2 { @include font ($h2 + $h2-mod, $h2-p * 2); }
+    h3 { @include font ($h3 + $h3-mod, $h3-p * 2); }
+    h4 { @include font ($h4 + $h4-mod, $h4-p * 2); }
+    h5 { @include font ($h5 + $h5-mod, $h5-p * 2); }
+    h6 { @include font ($h6 + $h6-mod, $h6-p * 2); }
+    p { @include font ($p  + $p-mod, $p-p * 2); }
+    
+    .title { @include font ($title + $title-mod, $title-p * 2); }
+    .starter { @include font ($starter + $starter-mod, $starter-p * 2); }
+}
+
+@media screen and (min-width: 768px)
+{
+    h1 { @include font ($h1 + ($h1-mod * 2), $h1-p * 3); }
+    h2 { @include font ($h2 + ($h2-mod * 2), $h2-p * 3); }
+    h3 { @include font ($h3 + ($h3-mod * 2), $h3-p * 3); }
+    h4 { @include font ($h4 + ($h4-mod * 2), $h4-p * 3); }
+    h5 { @include font ($h5 + ($h5-mod * 2), $h5-p * 3); }
+    h6 { @include font ($h6 + ($h6-mod * 2), $h6-p * 3); }
+    p { @include font ($p + ($p-mod * 2), $p-p * 3); }
+    
+    .title { @include font ($title + ($title-mod * 2), $title-p * 3); }
+    .starter { @include font ($starter + ($starter-mod * 2), $starter-p * 3); }
+}
+
+@media screen and (min-width: 1024px)
+{
+    h1 { @include font ($h1 + ($h1-mod * 3), $h1-p * 4); }
+    h2 { @include font ($h2 + ($h2-mod * 3), $h2-p * 4); }
+    h3 { @include font ($h3 + ($h3-mod * 3), $h3-p * 4); }
+    h4 { @include font ($h4 + ($h4-mod * 3), $h4-p * 4); }
+    h5 { @include font ($h5 + ($h5-mod * 3), $h5-p * 4); }
+    h6 { @include font ($h6 + ($h6-mod * 3), $h6-p * 4); }
+    p { @include font ($p + ($p-mod * 3), $p-p * 4); }
+    
+    .title { @include font ($title + ($title-mod * 3), $title-p * 4); }
+    .starter { @include font ($starter + ($starter-mod * 3), $starter-p * 4); }
+}
+
+@media screen and (min-width: 1280px)
+{
+    h1 { @include font ($h1 + ($h1-mod * 4), $h1-p * 5); }
+    h2 { @include font ($h2 + ($h2-mod * 4), $h2-p * 5); }
+    h3 { @include font ($h3 + ($h3-mod * 4), $h3-p * 5); }
+    h4 { @include font ($h4 + ($h4-mod * 4), $h4-p * 5); }
+    h5 { @include font ($h5 + ($h5-mod * 4), $h5-p * 5); }
+    h6 { @include font ($h6 + ($h6-mod * 4), $h6-p * 5); }
+    p { @include font ($p + ($p-mod * 4), $p-p * 5); }
+    
+    .title { @include font ($title + ($title-mod * 4), $title-p * 5); }
+    .starter { @include font ($starter + ($starter-mod * 4), $starter-p * 5); }
+}
+
+@media screen and (min-width: 1440px)
+{
+    h1 { @include font ($h1 + ($h1-mod * 5), $h1-p * 6); }
+    h2 { @include font ($h2 + ($h2-mod * 5), $h2-p * 6); }
+    h3 { @include font ($h3 + ($h3-mod * 5), $h3-p * 6); }
+    h4 { @include font ($h4 + ($h4-mod * 5), $h4-p * 6); }
+    h5 { @include font ($h5 + ($h5-mod * 5), $h5-p * 6); }
+    h6 { @include font ($h6 + ($h6-mod * 5), $h6-p * 6); }
+    p { @include font ($p + ($p-mod * 5), $p-p * 6); }
+    
+    .title { @include font ($title + ($title-mod * 5), $title-p * 6); }
+    .starter { @include font ($starter + ($starter-mod * 5), $starter-p * 6); }
+}
+
+@media screen and (min-width: 1920px)
+{
+    h1 { @include font ($h1 + ($h1-mod * 6), $h1-p * 7); }
+    h2 { @include font ($h2 + ($h2-mod * 6), $h2-p * 7); }
+    h3 { @include font ($h3 + ($h3-mod * 6), $h3-p * 7); }
+    h4 { @include font ($h4 + ($h4-mod * 6), $h4-p * 7); }
+    h5 { @include font ($h5 + ($h5-mod * 6), $h5-p * 7); }
+    h6 { @include font ($h6 + ($h6-mod * 6), $h6-p * 7); }
+    p { @include font ($p + ($p-mod * 6), $p-p * 7); }
+    
+    .title { @include font ($title + ($title-mod * 6), $title-p * 7); }
+    .starter { @include font ($starter + ($starter-mod * 6), $starter-p * 7); }
+}

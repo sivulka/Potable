@@ -1,0 +1,57 @@
+/* Buttons.scss */
+
+@mixin button ($color, $hoverColor) {
+    width: auto;
+    text-align: center;
+    cursor: pointer;
+    -moz-border-radius: 2px; 
+    -webkit-border-radius: 2px; 
+    border-radius: 2px;
+    color: #FFF;
+    background: $color;
+    border: 2px solid $color;
+    font-family: $lato;
+    display: inline;
+    margin: 5px auto;
+    transition: all 200ms ease-in-out 0s;
+    -o-transition: all 200ms ease-in-out 0s;
+    -moz-transition: all 200ms ease-in-out 0s;
+    -ms-transition: all 200ms ease-in-out 0s;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 25px 10px 25px;
+    &:hover {
+        color: #fff !important;
+        border: 2px solid $hoverColor;
+        background: $hoverColor;
+    }
+}
+
+.btnPurple { 
+    @include button (#8e44ad, #9b59b6);
+}
+
+.btnBlue { 
+    @include button (#2980b9, #3498db);
+}
+
+.btnGreen { 
+    @include button (#27ae60, #2ecc71);
+}
+
+.btnTurquoise { 
+    @include button (#16a085, #1abc9c);
+}
+
+.btnYellow { 
+    @include button (#f39c12, #f1c40f);
+}
+
+.btnOrange { 
+    @include button (#d35400, #e67e22);
+}
+
+.btnRed { 
+    @include button (#c0392b, #e74c3c);
+}

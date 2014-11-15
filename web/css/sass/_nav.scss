@@ -1,0 +1,91 @@
+/* Nav.scss */
+
+/* NAVIGATION BAR */
+.navigation-bar {
+    z-index: 999;
+    
+    .links {
+        color: #FFF;
+    }
+
+    .elements-center {
+        width: auto;
+        margin: 0 auto;
+        padding: 0;
+        float: right;
+        
+        li {    
+            display: inline;
+            color: #FFF;    
+        }
+    }
+    
+    .element{
+        color: #FFF;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transition: all 1s ease;
+    }
+}
+
+.slicknav_menu {
+	display: none;
+    width: 100%;
+    /*
+    position: fixed;
+    top: 5px;
+    right: 5%;*/
+    
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+
+    .slicknav_nav {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        
+        li {
+            display: block;
+            width: 100%;
+            color: #FFF;
+            text-align: right;
+            .element {
+                width: 100%;
+                color: #FFF;
+                margin-left: 0;
+                margin-right: 0;
+                text-align: right;
+            }
+        }    
+        
+        li:nth-child(1){
+            margin-top: 50px;
+            .element {
+                width: 100%;
+                color: #FFF;
+                margin-left: 0;
+                margin-right: 0;
+                text-align: right;
+            }
+        }    
+    }
+    
+    .slicknav_btn {
+        position: absolute;
+        top: 5px;
+        right: 5%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 40em) {
+	#elements-nav {
+		display:none;
+	}
+	
+	.slicknav_menu {
+		display: block;
+	}
+}

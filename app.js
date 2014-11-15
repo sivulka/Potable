@@ -23,6 +23,8 @@ app.configure(function() {
 	app.use(express.static(__dirname + "/web"));
 });
 
+require("./api/api")(app);
+
 app.configure("development", function() {
 	app.use(express.errorHandler());
 });
