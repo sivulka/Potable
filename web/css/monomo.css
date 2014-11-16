@@ -130,24 +130,19 @@ h1, p {
   font-weight: 300; }
 
 /* LOAD OTHER FILES */
-/*
 #ocean-top {
-    background-image: url("../images/Ocean.png") no-repeat stretch stretch scroll;
-    background-size: 100% auto;
-}
+  background-image: url("../images/Ocean.png");
+  background-size: 100% auto; }
 
 .ocean {
-    display: table;
-    
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-}
+  display: table;
+  width: 100%;
+  height: 100%;
+  max-height: 100%; }
 
 .water {
-    width: 100%;
-}
-*/
+  width: 100%; }
+
 /* Attr.scss */
 .center {
   margin: auto;
@@ -269,15 +264,11 @@ h1, p {
   /*
   z-index: -999;
   */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0;
-  padding: 125px auto;
+  padding: 75px auto;
   /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE AS YOUR BACKGROUND */
   background: url(../images/Ocean.png) no-repeat center top scroll;
-  /*background-color: #1D1D1D;*/
+  /* background-color: #2980b9; */
   color: #FFF;
   background-size: cover;
   /* UNCOMMENT IF FULL SCREEN*/
@@ -301,12 +292,23 @@ h1, p {
         font-weight: 300;
         margin-bottom: 75px; }
       .mo-intro .container .content sub {
-        /* color: rgba(112, 212, 249, 1.0); */
+        color: #70d4f9;
         font-weight: 700; }
       .mo-intro .container .content span:nth-child(1) {
         font-weight: 600; }
+      .mo-intro .container .content a {
+        color: #D0D0D0;
+        transition: all 200ms ease-in-out 0s;
+        -o-transition: all 200ms ease-in-out 0s;
+        -moz-transition: all 200ms ease-in-out 0s;
+        -ms-transition: all 200ms ease-in-out 0s; }
+        .mo-intro .container .content a:hover {
+          color: #F0F0F0; }
       .mo-intro .container .content span:nth-child(2) {
         font-weight: 300; }
+        .mo-intro .container .content span:nth-child(2) span {
+          color: #70d4f9;
+          font-weight: 700; }
   .mo-intro .vertical {
     vertical-align: top; }
 
@@ -467,6 +469,16 @@ h1, p {
 @media screen and (min-width: 1920px) {
   .projects-container {
     width: 1440px; } }
+.submitExperience {
+  position: absolute;
+  top: 0;
+  right: 5px; }
+  .submitExperience .btnRed {
+    height: 75px;
+    line-height: 55px;
+    padding-left: 15px;
+    padding-right: 15px; }
+
 /* Buttons.scss */
 .btnPurple {
   width: auto;
