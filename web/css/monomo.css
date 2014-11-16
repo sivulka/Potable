@@ -34,6 +34,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #ecf0f1;
   /* font-family: $Glober; */
   font-weight: 300; }
 
@@ -125,7 +126,8 @@ h1, p {
   font-family: "Glober", sans-serif; }
 
 .gandhisans {
-  font-family: "Gandhi Sans", sans-serif; }
+  font-family: "Gandhi Sans", sans-serif;
+  font-weight: 300; }
 
 /* LOAD OTHER FILES */
 /* Attr.scss */
