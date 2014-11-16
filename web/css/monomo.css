@@ -130,24 +130,19 @@ h1, p {
   font-weight: 300; }
 
 /* LOAD OTHER FILES */
-/*
 #ocean-top {
-    background-image: url("../images/Ocean.png") no-repeat stretch stretch scroll;
-    background-size: 100% auto;
-}
+  background-image: url("../images/Ocean.png");
+  background-size: 100% auto; }
 
 .ocean {
-    display: table;
-    
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-}
+  display: table;
+  width: 100%;
+  height: 100%;
+  max-height: 100%; }
 
 .water {
-    width: 100%;
-}
-*/
+  width: 100%; }
+
 /* Attr.scss */
 .center {
   margin: auto;
@@ -191,6 +186,15 @@ h1, p {
 
 .fixed {
   position: fixed; }
+
+max300 {
+  max-width: 300px; }
+
+max400 {
+  max-width: 400px; }
+
+max500 {
+  max-width: 500px; }
 
 /* Nav.scss */
 /* NAVIGATION BAR */
@@ -269,15 +273,11 @@ h1, p {
   /*
   z-index: -999;
   */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0;
-  padding: 125px auto;
+  padding: 75px auto;
   /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE AS YOUR BACKGROUND */
   background: url(../images/Ocean.png) no-repeat center top scroll;
-  /*background-color: #1D1D1D;*/
+  /* background-color: #2980b9; */
   color: #FFF;
   background-size: cover;
   /* UNCOMMENT IF FULL SCREEN*/
@@ -305,6 +305,14 @@ h1, p {
         font-weight: 700; }
       .mo-intro .container .content span:nth-child(1) {
         font-weight: 600; }
+      .mo-intro .container .content a {
+        color: #D0D0D0;
+        transition: all 200ms ease-in-out 0s;
+        -o-transition: all 200ms ease-in-out 0s;
+        -moz-transition: all 200ms ease-in-out 0s;
+        -ms-transition: all 200ms ease-in-out 0s; }
+        .mo-intro .container .content a:hover {
+          color: #F0F0F0; }
       .mo-intro .container .content span:nth-child(2) {
         font-weight: 300; }
         .mo-intro .container .content span:nth-child(2) span {
@@ -470,6 +478,16 @@ h1, p {
 @media screen and (min-width: 1920px) {
   .projects-container {
     width: 1440px; } }
+.submitExperience {
+  position: absolute;
+  top: 0;
+  right: 5px; }
+  .submitExperience .btnRed {
+    height: 75px;
+    line-height: 55px;
+    padding-left: 15px;
+    padding-right: 15px; }
+
 /* Buttons.scss */
 .btnPurple {
   width: auto;
@@ -853,7 +871,7 @@ h1, p {
   width: 100%;
   margin: 0 5px;
   padding: 5px 15px;
-  background-color: rgba(250, 250, 250, 0.5);
+  background-color: rgba(230, 230, 230, 0.5);
   color: #1D1D1D;
   border: none;
   font-family: 'Open Sans', sans-serif;
@@ -918,6 +936,50 @@ h1, p {
     color: #FFF; }
   .contact-icon:hover .fa {
     color: #C6C6C6; }
+
+.form-group {
+  width: 100%;
+  height: 100%; }
+  .form-group label {
+    display: block;
+    margin-left: 15px; }
+  .form-group a i {
+    color: #000; }
+
+.form-text-input {
+  display: inline;
+  width: 75%;
+  height: 34px;
+  margin-left: 25px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: rgba(230, 230, 230, 0.5);
+  background-image: none;
+  border: none;
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+  .form-text-input:focus {
+    outline: 0; }
+  .form-text-input::-moz-placeholder {
+    color: #D0D0D0;
+    opacity: 1; }
+  .form-text-input:-ms-input-placeholder {
+    color: #D0D0D0; }
+  .form-text-input::-webkit-input-placeholder {
+    color: #D0D0D0; }
+
+.btnGlobe {
+  display: inline;
+  width: 34px;
+  height: 34px;
+  line-height: 44px;
+  padding-top: 3px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px; }
 
 /* RESPONSIVE */
 @media screen and (min-width: 480px) {
