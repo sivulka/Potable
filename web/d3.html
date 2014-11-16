@@ -1,5 +1,7 @@
 
 <!DOCTYPE html>
+
+<html>
 <meta charset="utf-8">
 <style>
 path {
@@ -42,11 +44,14 @@ var path = d3.geo.path()
     .projection(projection);
 
 var g = svg.append("g");
+    
+var scale =  d3.scale.quantile().domain([1,2,3,4,5]).range("#3D5AFE","#00C853","#AFB42B","#FF8F00","#D50000");
+scale.quantiles();
 
 // load and display the World
 d3.json("world.json", function(error, topology) {
 
-// load and display the cities
+// load and display the water quality nodes
 d3.csv("csv/water.csv", function(error, data) {
     g.selectAll("circle")
        .data(data)
