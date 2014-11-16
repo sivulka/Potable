@@ -1,0 +1,9 @@
+{
+    "nodes":[
+        { 
+        "longitude":"sample",
+        "latitude":"sample",
+         "quality":"1-5",
+         "complaints":"5million"
+        }]
+}
