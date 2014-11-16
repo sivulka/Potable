@@ -158,7 +158,11 @@ h1, p {
   margin: auto; }
 
 .invisible {
-  opacity: 0; }
+  opacity: 0;
+  transition: all 200ms ease-in-out 0s;
+  -o-transition: all 200ms ease-in-out 0s;
+  -moz-transition: all 200ms ease-in-out 0s;
+  -ms-transition: all 200ms ease-in-out 0s; }
 
 .hide {
   display: none; }
@@ -184,6 +188,9 @@ h1, p {
 
 .half-display {
   width: 50%; }
+
+.fixed {
+  position: fixed; }
 
 /* Nav.scss */
 /* NAVIGATION BAR */
@@ -287,7 +294,7 @@ h1, p {
       padding: 100px 5px 20px 5px; }
       .mo-intro .container .content h1 {
         font-family: "Glober", sans-serif;
-        font-weight: 300;
+        font-weight: 400;
         margin: 10px; }
       .mo-intro .container .content h2 {
         font-family: "Open Sans", sans-serif;
