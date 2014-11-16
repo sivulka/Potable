@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Testing</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="results"></div>
+		<script>
+		var n = 0;
+		while (n < 40) {
+			$.ajax({
+				type: "GET",
+				url: "/api/data",
+				data: {
+					number: n
+				},
+				dataType: "json",
+			}).done(function(result) {
+				console.dir(result);
+				$("#results").html($("#results").html() + result.number
+					+ ": " + result.data[0]
+					+ " " + result.data[3]
+					+ " " + result.data[15]
+					+ "<br />");
+			});
+			n += 1;
+		}
+		</script>
+	</body>
+</html>

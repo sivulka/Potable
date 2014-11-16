@@ -167,8 +167,9 @@ module.exports = function(app) {
 	});
 
 	app.get("/api/data", function(req, res) {
+		var n = (req.param("number") ? pad(parseInt(req.param("number")), 5) : "00001");
 		var data =  {
-			"Id": "score00001",
+			"Id": "score" + n,
 			"Instance": {
 				"FeatureVector": {
 				},
@@ -194,7 +195,18 @@ module.exports = function(app) {
 				if (body) {
 					var obj = JSON.parse(body);
 					// console.dir(obj);
-					res.send(obj);
+					/* res.send({
+						number: parseInt(n),
+						data: obj
+					});
+					*/
+					var returned = {
+						lat: parseFloat(obj[1]),
+						long: parseFloat(obj[2]),
+						quality: parseInt(obj[3]),
+						complaints: parseInt(obj[15])
+					};
+					res.send(returned);
 					return;
 				}
 			}
@@ -237,3 +249,9 @@ var convert_json_to_csv = function(json) {
 	}
 	return data;
 };
+
+var pad = function(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
