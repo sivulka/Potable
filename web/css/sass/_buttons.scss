@@ -12,7 +12,7 @@
     border: 2px solid $color;
     font-family: $lato;
     display: inline;
-    margin: 5px auto;
+    margin: 5px 10px;
     transition: all 200ms ease-in-out 0s;
     -o-transition: all 200ms ease-in-out 0s;
     -moz-transition: all 200ms ease-in-out 0s;
@@ -54,4 +54,27 @@
 
 .btnRed { 
     @include button (#c0392b, #e74c3c);
+}
+
+.btnClear {
+    padding: 20px 50px;
+    
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    
+    text-transform: uppercase;
+	font-weight: 700;
+    
+    border: none;
+    
+    transition: all 150ms ease-in-out 0s;
+    -o-transition: all 150ms ease-in-out 0s;
+    -moz-transition: all 150ms ease-in-out 0s;
+    -ms-transition: all 150ms ease-in-out 0s;
+    
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #FFF;
+    }
+    /*@include button (, rgba(255, 255, 255, 0.5));*/
 }

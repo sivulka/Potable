@@ -1,0 +1,39 @@
+{"nodes":[
+        { 
+        "longitude":"80.06",
+        "latitude":"20.07",
+         "quality":"4",
+         "complaints":"17"},
+    {
+        "longitude":"72.822",
+        "latitude":"18.968",
+         "quality":"2",
+         "complaints":"62"},
+    {
+        "longitude":"77.216",
+        "latitude":"28.613",
+         "quality":"5",
+         "complaints":"49"},
+    {
+        "longitude":"92.79",
+        "latitude":"24.86",
+         "quality":"4",
+         "complaints":"3"},
+    {
+        "longitude":"87.208",
+        "latitude":"21.813",
+         "quality":"1",
+         "complaints":"12"},
+    {
+        "longitude":"77.589",
+        "latitude":"12.987",
+         "quality":"2",
+         "complaints":"54"},
+    {
+        "longitude":"16.320",
+        "latitude":"75.724",
+         "quality":"4",
+         "complaints":"7"},
+        }]
+    
+}
