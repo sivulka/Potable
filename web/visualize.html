@@ -54,8 +54,10 @@
     function initialize() {
       proj.scale(6700);
       proj.translate([-1240, 720]);
-    }
-d3.json("complaints.json", function(data){
+    };
+      
+      
+d3.json("json/water.json", function(data){
     svg.selectAll("circle")
         .data("data")
         .enter()
@@ -67,14 +69,15 @@ d3.json("complaints.json", function(data){
             return projection([d.lon, d.lat])[1];
          })
         .attr("r",function(d){
-            
-        
-        
+            return (d.amount)
                 }
-        .style("fill", function(d){
-                
-        
-                }
+        .style("fill", "black")
+                     
+               
+               
+               // function(d){
+        //    return complaint([d.)]
+          //      }
         .style("opacity", 0.75);
     
 )};
