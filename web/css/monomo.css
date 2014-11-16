@@ -130,6 +130,24 @@ h1, p {
   font-weight: 300; }
 
 /* LOAD OTHER FILES */
+/*
+#ocean-top {
+    background-image: url("../images/Ocean.png") no-repeat stretch stretch scroll;
+    background-size: 100% auto;
+}
+
+.ocean {
+    display: table;
+    
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+}
+
+.water {
+    width: 100%;
+}
+*/
 /* Attr.scss */
 .center {
   margin: auto;
@@ -251,9 +269,10 @@ h1, p {
   margin: 0;
   padding: 125px auto;
   /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE AS YOUR BACKGROUND */
-  background: url(../images/ms-bg.jpg) no-repeat center center scroll;
+  background: url(../images/OceanCover.png) no-repeat center center scroll;
   /*background-color: #1D1D1D;*/
   color: #FFF;
+  background-size: cover;
   /* UNCOMMENT IF FULL SCREEN*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -446,7 +465,7 @@ h1, p {
   border: 2px solid #8e44ad;
   font-family: "Lato", sans-serif;
   display: inline;
-  margin: 5px auto;
+  margin: 5px 10px;
   transition: all 200ms ease-in-out 0s;
   -o-transition: all 200ms ease-in-out 0s;
   -moz-transition: all 200ms ease-in-out 0s;
@@ -472,7 +491,7 @@ h1, p {
   border: 2px solid #2980b9;
   font-family: "Lato", sans-serif;
   display: inline;
-  margin: 5px auto;
+  margin: 5px 10px;
   transition: all 200ms ease-in-out 0s;
   -o-transition: all 200ms ease-in-out 0s;
   -moz-transition: all 200ms ease-in-out 0s;
@@ -498,7 +517,7 @@ h1, p {
   border: 2px solid #27ae60;
   font-family: "Lato", sans-serif;
   display: inline;
-  margin: 5px auto;
+  margin: 5px 10px;
   transition: all 200ms ease-in-out 0s;
   -o-transition: all 200ms ease-in-out 0s;
   -moz-transition: all 200ms ease-in-out 0s;
@@ -524,7 +543,7 @@ h1, p {
   border: 2px solid #16a085;
   font-family: "Lato", sans-serif;
   display: inline;
-  margin: 5px auto;
+  margin: 5px 10px;
   transition: all 200ms ease-in-out 0s;
   -o-transition: all 200ms ease-in-out 0s;
   -moz-transition: all 200ms ease-in-out 0s;
@@ -550,7 +569,7 @@ h1, p {
   border: 2px solid #f39c12;
   font-family: "Lato", sans-serif;
   display: inline;
-  margin: 5px auto;
+  margin: 5px 10px;
   transition: all 200ms ease-in-out 0s;
   -o-transition: all 200ms ease-in-out 0s;
   -moz-transition: all 200ms ease-in-out 0s;
@@ -576,7 +595,7 @@ h1, p {
   border: 2px solid #d35400;
   font-family: "Lato", sans-serif;
   display: inline;
-  margin: 5px auto;
+  margin: 5px 10px;
   transition: all 200ms ease-in-out 0s;
   -o-transition: all 200ms ease-in-out 0s;
   -moz-transition: all 200ms ease-in-out 0s;
@@ -602,7 +621,7 @@ h1, p {
   border: 2px solid #c0392b;
   font-family: "Lato", sans-serif;
   display: inline;
-  margin: 5px auto;
+  margin: 5px 10px;
   transition: all 200ms ease-in-out 0s;
   -o-transition: all 200ms ease-in-out 0s;
   -moz-transition: all 200ms ease-in-out 0s;
@@ -615,6 +634,13 @@ h1, p {
     color: #fff !important;
     border: 2px solid #e74c3c;
     background: #e74c3c; }
+
+.btn-clear {
+  color: #444;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.2);
+  /*@include button (, rgba(255, 255, 255, 0.5));*/ }
 
 /* Theme.scss */
 .themes-dark {
