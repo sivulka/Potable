@@ -62,11 +62,10 @@ d3.json("world.json", function(error, topology) {
         type: "GET",
         dataType: "json",
     }).done(function(data) {
-    /// });
+     });
 
 // load and display the water quality nodes
-// d3.csv("csv/water.csv", function(error, data) {
-  console.dir(data);
+d3.csv("csv/water.csv", function(error, data) {
     g.selectAll("circle")
        .data(data)
        .enter()
@@ -76,7 +75,6 @@ d3.json("world.json", function(error, topology) {
 //				  )
        .append("circle")
        .attr("cx", function(d) {
-        console.dir(d);
                return projection([d.lon, d.lat])[0];
        })
        .attr("cy", function(d) {
