@@ -82,9 +82,11 @@
             width: 25em;
         }
     </style>
+    <script type="text/javascript" src="http://code.jquerygeo.com/jquery.geo-1.0b1.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
+            getLoc();
             $("#searchBox").autocomplete({
                 source: function (request, response) {
                     $.ajax({
@@ -114,7 +116,10 @@
                 minLength: 1,
                 change: function (event, ui) {
                     if (!ui.item)
+                    {
                         $("#searchBox").val('');
+                        $("#searchBox").css("background-color", "rgba(230, 230, 230, 0.5)");
+                    }
                 },
                 select: function (event, ui) {
                     displaySelectedItem(ui.item.data);
@@ -123,7 +128,11 @@
         });
 
         function displaySelectedItem(item) {
-            $("#searchResult").empty().append('Result: ' + item.name).append(' (Latitude: ' + item.point.coordinates[0] + ' Longitude: ' + item.point.coordinates[1] + ')');
+            
+            $("#searchBox").val(item.name + '(' + item.address.countryRegion + ')');
+            /*- ' + item.point.coordinates[0] + ', ' + item.point.coordinates[1]);*/
+            /*
+            $("#searchResult").empty().append('Result: ' + item.name).append(' (Latitude: ' + item.point.coordinates[0] + ' Longitude: ' + item.point.coordinates[1] + ')');*/
         }
     </script>
     
@@ -176,6 +185,36 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <script src="js/page.js"></script>
+    
+    <script type="text/javascript">
+        
+        function getLoc () {
+            $(".nav").buttonset();
+
+        if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (p) {
+                getCoords([p.coords.longitude, p.coords.latitude]);
+            }, 
+            
+            function (error) {
+                getCoords([p.coords.longitude, p.coords.latitude]);
+            });
+        } 
+        
+        else {
+            getCoords([p.coords.longitude, p.coords.latitude]);
+        }
+
+        function getCoords(center) {
+            console.log(center);
+        };
+
+        }
+  
+    </script>
+    
+    
+    
     <script type="text/javascript">
         var w = 600;
         var h = 600;
