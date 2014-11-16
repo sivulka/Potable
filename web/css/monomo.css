@@ -130,24 +130,19 @@ h1, p {
   font-weight: 300; }
 
 /* LOAD OTHER FILES */
-/*
 #ocean-top {
-    background-image: url("../images/Ocean.png") no-repeat stretch stretch scroll;
-    background-size: 100% auto;
-}
+  background-image: url("../images/Ocean.png");
+  background-size: 100% auto; }
 
 .ocean {
-    display: table;
-    
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-}
+  display: table;
+  width: 100%;
+  height: 100%;
+  max-height: 100%; }
 
 .water {
-    width: 100%;
-}
-*/
+  width: 100%; }
+
 /* Attr.scss */
 .center {
   margin: auto;
@@ -269,15 +264,11 @@ h1, p {
   /*
   z-index: -999;
   */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0;
   padding: 125px auto;
   /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE AS YOUR BACKGROUND */
   background: url(../images/Ocean.png) no-repeat center top scroll;
-  /*background-color: #1D1D1D;*/
+  /* background-color: #2980b9; */
   color: #FFF;
   background-size: cover;
   /* UNCOMMENT IF FULL SCREEN*/

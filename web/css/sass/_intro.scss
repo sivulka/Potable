@@ -17,17 +17,13 @@
     /*
     z-index: -999;
     */
-    
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    
+
     margin: 0;
     padding: 125px auto;
     /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE AS YOUR BACKGROUND */
+    
     background: url(../images/Ocean.png) no-repeat center top scroll;
-    /*background-color: #1D1D1D;*/
+    /* background-color: #2980b9; */
     color: #FFF;
     
     background-size: cover;
@@ -39,6 +35,7 @@
     .container {
         display: table-cell;
         vertical-align: middle;
+        
         .content {
             color: #FFF;
             text-align: center;
