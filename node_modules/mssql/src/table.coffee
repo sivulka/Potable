@@ -1,0 +1,61 @@
+{TYPES, declare} = require './datatypes'
+MAX = 65535 # (1 << 16) - 1
+
+class Table
+	constructor: (name) ->
+		if name
+			path = name.match /^(\[?([^\]]*)\]?\.)?(\[?([^\]]*)\]?\.)?\[?([^\]]*)\]?$/
+			@name = path[5]
+			@schema = if path[4]? then path[4] else if path[2] then path[2] else null
+			@database = path[2] ? null
+			@path = "#{if @database then "[#{@database}]." else ""}#{if @schema then "[#{@schema}]." else ""}[#{@name}]"
+			@temporary = @name.charAt(0) is '#'
+		
+		@columns = []
+		@rows = []
+		
+		Object.defineProperty @columns, "add",
+			value: (name, column, options = {}) ->
+				unless column? then throw new Error "Column data type is not defined."
+				if column instanceof Function then column = column()
+				column.name = name
+				column.nullable = options.nullable
+				@push column
+				
+		Object.defineProperty @rows, "add",
+			value: (values...) ->
+				@push values
+	
+	###
+	@private
+	###
+	
+	_makeBulk: ->
+		for col in @columns
+			switch col.type
+				when TYPES.Xml then col.type = TYPES.NVarChar(MAX).type
+				when TYPES.UDT, TYPES.Geography, TYPES.Geometry then col.type = TYPES.VarBinary(MAX).type
+
+		@
+	
+	declare: ->
+		"create table #{@path} (#{("[#{col.name}] #{declare col.type, col}#{if col.nullable is true then " null" else if col.nullable is false then " not null" else ""}" for col in @columns).join ', '})"
+
+	@fromRecordset: (recordset) ->
+		t = new @
+		
+		for name, col of recordset.columns
+			t.columns.add name,
+				type: col.type
+				length: col.length
+				scale: col.scale
+				precision: col.precision
+			,
+				nullable: col.nullable
+		
+		for row in recordset
+			t.rows.add (row[col.name] for col in t.columns)...
+		
+		t
+
+module.exports = Table

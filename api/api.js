@@ -7,6 +7,4 @@ module.exports = function(app) {
 			message: "The API is up and running! :)"
 		});
 	});
-
-	
 };

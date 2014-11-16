@@ -1,0 +1,55 @@
+{
+  "name": "big-number",
+  "version": "0.3.0",
+  "description": "Light, ultra-fast javascript implementation for BigIntegers (base arithmetic operations)",
+  "keywords": [
+    "number",
+    "bigint",
+    "bignumber",
+    "big-number",
+    "bignumbers",
+    "arithmetic",
+    "operations"
+  ],
+  "author": {
+    "name": "Alex Bardas",
+    "email": "alexbardas@gmail.com"
+  },
+  "main": "./index",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:alexbardas/bignumber.js.git"
+  },
+  "devDependencies": {
+    "mocha": ">= 1.4",
+    "should": ">= 1.1"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.4.x"
+  },
+  "bugs": {
+    "url": "https://github.com/alexbardas/bignumber.js/issues"
+  },
+  "homepage": "https://github.com/alexbardas/bignumber.js",
+  "_id": "big-number@0.3.0",
+  "dist": {
+    "shasum": "e06795c7e6d5cb595dcac8236fb535cd8c947723",
+    "tarball": "http://registry.npmjs.org/big-number/-/big-number-0.3.0.tgz"
+  },
+  "_from": "big-number@0.3.0",
+  "_npmVersion": "1.4.3",
+  "_npmUser": {
+    "name": "alexbardas",
+    "email": "alexbardas@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "alexbardas",
+      "email": "alexbardas@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_shasum": "e06795c7e6d5cb595dcac8236fb535cd8c947723",
+  "_resolved": "https://registry.npmjs.org/big-number/-/big-number-0.3.0.tgz"
+}

@@ -1,0 +1,120 @@
+{
+  "author": {
+    "name": "Mike D Pilsbury",
+    "email": "mike.pilsbury@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Ciaran Jessup",
+      "email": "ciaranj@gmail.com"
+    },
+    {
+      "name": "Cort Fritz",
+      "email": "cfritz@caa.com"
+    },
+    {
+      "name": "lastonesky"
+    },
+    {
+      "name": "Patrik Simek",
+      "email": "patrik@patriksimek.cz"
+    },
+    {
+      "name": "Phil Dodderidge",
+      "email": "pdodde@poyntz.com"
+    },
+    {
+      "name": "Zach Aller"
+    },
+    {
+      "name": "Bryan Ross",
+      "email": "bryan@rossipedia.com",
+      "url": "https://github.com/rossipedia"
+    },
+    {
+      "name": "Bret Copeland",
+      "email": "bret@atlantisflight.org",
+      "url": "https://github.com/bretcope"
+    }
+  ],
+  "name": "tedious",
+  "description": "A TDS driver, for connecting to MS SQLServer databases.",
+  "keywords": [
+    "sql",
+    "database",
+    "mssql",
+    "sqlserver",
+    "sql-server",
+    "tds",
+    "msnodesql",
+    "azure"
+  ],
+  "homepage": "https://github.com/pekim/tedious",
+  "bugs": {
+    "url": "https://github.com/pekim/tedious/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/pekim/tedious/master/LICENSE"
+    }
+  ],
+  "version": "1.7.0",
+  "main": "./lib/tedious.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pekim/tedious.git"
+  },
+  "engines": {
+    "node": "0.6 || 0.7 || 0.8 || 0.9 || 0.10 || 0.11"
+  },
+  "dependencies": {
+    "big-number": "0.3.0",
+    "iconv-lite": "0.4.2",
+    "sprintf": "0.1.1"
+  },
+  "devDependencies": {
+    "async": "0.2.10",
+    "coffee-script": "1.7.1",
+    "nodeunit": "0.8.4"
+  },
+  "scripts": {
+    "test": "nodeunit test/register-coffee.js test/unit/ test/unit/token/ test/unit/tracking-buffer",
+    "test-all": "nodeunit test/register-coffee.js test/unit/ test/unit/token/ test/unit/tracking-buffer test/integration/",
+    "test-integration": "nodeunit test/register-coffee.js test/integration/",
+    "prepublish": "coffee scripts/build.coffee"
+  },
+  "gitHead": "111225aa42e22cdf1f32e215316a74b0de004450",
+  "_id": "tedious@1.7.0",
+  "_shasum": "77e93f06926972466580f5cd6e36d31ccfd2a48f",
+  "_from": "tedious@^1.7.0",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "patriksimek",
+    "email": "patrik@patriksimek.cz"
+  },
+  "maintainers": [
+    {
+      "name": "pekim",
+      "email": "mike.pilsbury@gmail.com"
+    },
+    {
+      "name": "patriksimek",
+      "email": "patrik@patriksimek.cz"
+    },
+    {
+      "name": "bretcope",
+      "email": "bret@atlantisflight.org"
+    },
+    {
+      "name": "rossipedia",
+      "email": "bryan@rossipedia.com"
+    }
+  ],
+  "dist": {
+    "shasum": "77e93f06926972466580f5cd6e36d31ccfd2a48f",
+    "tarball": "http://registry.npmjs.org/tedious/-/tedious-1.7.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/tedious/-/tedious-1.7.0.tgz"
+}
