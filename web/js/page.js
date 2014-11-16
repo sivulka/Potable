@@ -25,3 +25,11 @@ function OnModalPageRequest(origin, destination, modal)
     jQuery.noConflict();
     $(modal).modal('show');
 }
+
+function dataSubmit() 
+{
+    console.log("sub");
+    $("#btnSubmit").html("Thanks!");
+    
+    
+}
