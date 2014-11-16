@@ -68,9 +68,11 @@ d3.csv("csv/water.csv", function(error, data) {
                return projection([d.lon, d.lat])[1];
        })
        .attr("r",  function(d){ 
-                return (d.complaints) * 0.03
+                return (d.complaints) * 0.03;
         })
-    .style("fill","black")
+    .style("fill",function(d){
+            return scale(d);   
+    })
     .style("fill-opacity","0")
     .style("stroke-width","1")
        .style("stroke","rgba(200, 54, 54, 0.5)");
