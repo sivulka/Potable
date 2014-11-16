@@ -50,8 +50,8 @@ var path = d3.geo.path()
 
 var g = svg.append("g");
     
-var scale =  d3.scale.quantile().domain([1,2,3,4,5]).range("#3D5AFE","#00C853","#AFB42B","#FF8F00","#D50000");
-scale.quantiles();
+var scale =  d3.scale.linear().domain([1,2,3,4,5]).range("#3D5AFE","#00C853","#AFB42B","#FF8F00","#D50000");
+
 
 // load and display the World
 d3.json("world.json", function(error, topology) {
