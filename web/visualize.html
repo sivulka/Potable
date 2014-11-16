@@ -8,12 +8,6 @@
     <!--  Scripts  -->
     <script type="text/javascript" src="d3.min.js"></script>
     <script type="text/javascript" src="d3.geo.min.js"></script>
-
-    <!--  Styles  -->  
-<<<<<<< HEAD
-=======
-    
->>>>>>> origin/master
     <style type="text/css">
     svg {
       background: #fff;
@@ -36,54 +30,56 @@
     var proj = d3.geo.mercator();
     var path = d3.geo.path().projection(proj);
     var t = proj.translate(); // the projection's default translation
-    var s = proj.scale() // the projection's default scale
+    var s = proj.scale(); // the projection's default scale
 
     var map = d3.select("#chart").append("svg:svg")
         .attr("width", w)
         .attr("height", h)
-//        .call(d3.behavior.zoom().on("zoom", redraw))
-        .call(initialize);
+    //        .call(d3.behavior.zoom().on("zoom", redraw))
+    .call(initialize);
 
     var india = map.append("svg:g")
         .attr("id", "india");
 
+
+
     d3.json("json/indianstates.json", function (json) {
-      india.selectAll("path")
-          .data(json.features)
-        .enter().append("path")
-          .attr("d", path);
+        india.selectAll("path")
+            .data(json.features)
+            .enter().append("path")
+            .attr("d", path);
     });
 
+
     function initialize() {
-      proj.scale(6700);
-      proj.translate([-1240, 720]);
-    };
+        proj.scale(6700);
+        proj.translate([-1240, 720]);
+    }
+
+
+    d3.json("json/water.json", function (json) {
+
+        svg.selectAll("circle")
+            .data(json.nodes)
+            .enter()
+            .append("circle")
+            .attr("cx", function (json) {
+            return projection([json.lon, json.lat])[0];
+        })
+            .attr("cy", function (json) {
+            return projection([json.lon, json.lat])[1];
+        })
+            .attr("r", function (json) {
+            return (json.complaints);
+        })
+            .style("fill", "black")
+            .style("opacity", 0.75);
+
+    });
       
-      
-d3.json("json/water.json", function(data){
-    svg.selectAll("circle")
-        .data("data")
-        .enter()
-        .append("circle")
-        .attr("cx", function(d){
-            return projection([d.lon, d.lat])[0];
-         })
-        .attr("cy", function(d){
-            return projection([d.lon, d.lat])[1];
-         })
-        .attr("r",function(d){
-            return (d.amount)
-                }
-        .style("fill", "black")
-                     
-               
-               
-               // function(d){
-        //    return complaint([d.)]
-          //      }
-        .style("opacity", 0.75);
     
-)};
+
+
 /*    
    // This section should allow for zoom & pan.
 
@@ -117,6 +113,19 @@ var states = svg.append("g")
     function quantize(d) {
       return "q" + Math.min(8, ~~(data[d.id] * 9 / 12)) + "-9";
     }
+    
+    
+    
+    
+    var point = map.append("svg:circle")
+    .attr("id","point");
+      
+      
+
+    
+    
+    
+    
 */
   </script>
 </body>
