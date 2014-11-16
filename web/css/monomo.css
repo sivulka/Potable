@@ -106,6 +106,8 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0; }
 
 .title {
+  font-family: "Glober", sans-serif;
+  font-weight: 300;
   margin: 1px;
   padding: 0; }
 
@@ -276,7 +278,7 @@ max500 {
   margin: 0;
   padding: 75px auto;
   /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE AS YOUR BACKGROUND */
-  background: url(../images/Ocean.png) no-repeat center top scroll;
+  background: url(../w1.png) no-repeat center top scroll;
   /* background-color: #2980b9; */
   color: #FFF;
   background-size: cover;
@@ -293,8 +295,7 @@ max500 {
       text-align: center;
       padding: 100px 5px 20px 5px; }
       .mo-intro .container .content h1 {
-        font-family: "Glober", sans-serif;
-        font-weight: 400;
+        font-weight: 300;
         margin: 10px; }
       .mo-intro .container .content h2 {
         font-family: "Open Sans", sans-serif;
@@ -304,7 +305,7 @@ max500 {
         color: #70d4f9;
         font-weight: 700; }
       .mo-intro .container .content span:nth-child(1) {
-        font-weight: 600; }
+        font-weight: 300; }
       .mo-intro .container .content a {
         color: #D0D0D0;
         transition: all 200ms ease-in-out 0s;
