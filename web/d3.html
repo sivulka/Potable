@@ -58,15 +58,15 @@ var scale =  d3.scale.linear().domain([1,2,3,4,5]).range("#3D5AFE","#00C853","#A
 d3.json("world.json", function(error, topology) {
     
     $.ajax({
-        url: "http://h2ohshit.azurewebsites.net/api/data",
+        url: "/api/data",
         type: "GET",
         dataType: "json",
     }).done(function(data) {
-        console.dir(data);
-    // });
+    /// });
 
 // load and display the water quality nodes
-//d3.csv("csv/water.csv", function(error, data) {
+// d3.csv("csv/water.csv", function(error, data) {
+  console.dir(data);
     g.selectAll("circle")
        .data(data)
        .enter()
@@ -76,6 +76,7 @@ d3.json("world.json", function(error, topology) {
 //				  )
        .append("circle")
        .attr("cx", function(d) {
+        console.dir(d);
                return projection([d.lon, d.lat])[0];
        })
        .attr("cy", function(d) {

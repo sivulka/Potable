@@ -29,7 +29,7 @@ module.exports = function(app) {
 			lat1: req.param("lat1"),
 			long0: req.param("long0"),
 			long1: req.param("long1"),
-			inc: 0.5,
+			inc: 1,
 		};
 		console.dir(data);
 		if (!(data.lat0 && data.lat1 && data.long0 && data.long1)) {
@@ -50,13 +50,16 @@ module.exports = function(app) {
 			// console.log("requesting "+urls.length+" urls");
 			var results = [];
 			var IDs = [];
+			var count = 0;
 			async.each(urls, function(uri, callback) {
 				request({
 					uri: uri,
 					method: "GET",
 					timeout: 3000,
 				}, function(err, res2, body) {
-					sleep(140000);
+					console.log(count +"/"+ urls.length);
+					count++;
+					sleep(100000);
 					if (body) {
 						var obj = JSON.parse(body);
 						if (obj.data && obj.data.length != 0) {
@@ -83,10 +86,11 @@ module.exports = function(app) {
 							uri: "https://api.tripadvisor.com/api/partner/1.0/location/" + result.location_id + "/reviews?key=" + common.TA_Key,
 							method: "GET",
 						}, function(err, res3, body) {
+							console.log(count +"/"+ urls.length);
 							if (err) {
 								console.dir(err);
 							}
-							sleep(140000);
+							sleep(100000);
 							if (body) {
 								var obj = JSON.parse(body);
 								if (obj && obj.data) {
@@ -100,7 +104,7 @@ module.exports = function(app) {
 										Quality: result.rating ? parseInt(result.rating) : -1,
 										Reviews: reviews
 									}
-									// console.log("inserting...");
+									console.log("inserting...");
 									if (insert.Quality != -1) {
 										try {
 											common.sql.connect(common.sql_config, function(err) {
@@ -202,11 +206,11 @@ module.exports = function(app) {
 					*/
 					var returned = {
 						lat: parseFloat(obj[1]),
-						long: parseFloat(obj[2]),
+						lon: parseFloat(obj[2]),
 						quality: parseInt(obj[3]),
 						complaints: parseInt(obj[15])
 					};
-					res.send(returned);
+					res.send([returned]);
 					return;
 				}
 			}
