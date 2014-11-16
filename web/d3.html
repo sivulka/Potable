@@ -51,7 +51,7 @@
       proj.scale(6700);
       proj.translate([-1240, 720]);
     }
-d3.json("json/water.csv", function(data){
+d3.json("csv/water.csv", function(data){
     svg.selectAll("circle")
         .data("data")
         .enter()
