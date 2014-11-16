@@ -269,7 +269,7 @@ h1, p {
   margin: 0;
   padding: 125px auto;
   /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE AS YOUR BACKGROUND */
-  background: url(../images/OceanCover.png) no-repeat center center scroll;
+  background: url(../images/Ocean.png) no-repeat center top scroll;
   /*background-color: #1D1D1D;*/
   color: #FFF;
   background-size: cover;
@@ -286,11 +286,19 @@ h1, p {
       text-align: center;
       padding: 100px 5px 20px 5px; }
       .mo-intro .container .content h1 {
-        font-family: "Open Sans", sans-serif;
+        font-family: "Glober", sans-serif;
         font-weight: 300;
-        margin: 15px; }
+        margin: 10px; }
       .mo-intro .container .content h2 {
         font-family: "Open Sans", sans-serif;
+        font-weight: 300;
+        margin-bottom: 75px; }
+      .mo-intro .container .content sub {
+        /* color: rgba(112, 212, 249, 1.0); */
+        font-weight: 700; }
+      .mo-intro .container .content span:nth-child(1) {
+        font-weight: 600; }
+      .mo-intro .container .content span:nth-child(2) {
         font-weight: 300; }
   .mo-intro .vertical {
     vertical-align: top; }
@@ -635,12 +643,21 @@ h1, p {
     border: 2px solid #e74c3c;
     background: #e74c3c; }
 
-.btn-clear {
-  color: #444;
+.btnClear {
+  padding: 20px 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #FFF;
   text-transform: uppercase;
   font-weight: 700;
-  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  transition: all 150ms ease-in-out 0s;
+  -o-transition: all 150ms ease-in-out 0s;
+  -moz-transition: all 150ms ease-in-out 0s;
+  -ms-transition: all 150ms ease-in-out 0s;
   /*@include button (, rgba(255, 255, 255, 0.5));*/ }
+  .btnClear:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #FFF; }
 
 /* Theme.scss */
 .themes-dark {

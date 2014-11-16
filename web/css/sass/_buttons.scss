@@ -56,10 +56,25 @@
     @include button (#c0392b, #e74c3c);
 }
 
-.btn-clear {
-    color: #444;
-	text-transform: uppercase;
-	font-weight: 700;
+.btnClear {
+    padding: 20px 50px;
+    
     background-color: rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    
+    text-transform: uppercase;
+	font-weight: 700;
+    
+    border: none;
+    
+    transition: all 150ms ease-in-out 0s;
+    -o-transition: all 150ms ease-in-out 0s;
+    -moz-transition: all 150ms ease-in-out 0s;
+    -ms-transition: all 150ms ease-in-out 0s;
+    
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #FFF;
+    }
     /*@include button (, rgba(255, 255, 255, 0.5));*/
 }
