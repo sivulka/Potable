@@ -1,5 +1,8 @@
 
 <!DOCTYPE html>
+
+<html>
+<head><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script></head>
 <meta charset="utf-8">
 <style>
 path {
@@ -18,8 +21,13 @@ path {
 .q8-9 { fill:rgb(8,48,107); }
     
     
+svg { cursor:crosshair; }
     
-    
+    /*
+path { -moz-box-shadow: -5px -5px 5px #000;
+            -webkit-box-shadow: -5px -5px 5px #000;
+            box-shadow: -5px -5px 5px #000; }   
+    */
     
 </style>
 <body>
@@ -42,12 +50,23 @@ var path = d3.geo.path()
     .projection(projection);
 
 var g = svg.append("g");
+    
+var scale =  d3.scale.linear().domain([1,2,3,4,5]).range("#3D5AFE","#00C853","#AFB42B","#FF8F00","#D50000");
+
 
 // load and display the World
 d3.json("world.json", function(error, topology) {
+    
+    $.ajax({
+        url: "http://h2ohshit.azurewebsites.net/api/data",
+        type: "GET",
+        dataType: "json",
+    }).done(function(data) {
+        console.dir(data);
+    // });
 
-// load and display the cities
-d3.csv("csv/water.csv", function(error, data) {
+// load and display the water quality nodes
+//d3.csv("csv/water.csv", function(error, data) {
     g.selectAll("circle")
        .data(data)
        .enter()
@@ -63,9 +82,11 @@ d3.csv("csv/water.csv", function(error, data) {
                return projection([d.lon, d.lat])[1];
        })
        .attr("r",  function(d){ 
-                return (d.complaints) * 0.03
+                return (d.complaints) * 0.03;
         })
-    .style("fill","black")
+    .style("fill", "#000") // function(d){
+//            return scale(d);   
+//    })
     .style("fill-opacity","0")
     .style("stroke-width","1")
        .style("stroke","rgba(200, 54, 54, 0.5)");

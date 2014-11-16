@@ -22,7 +22,7 @@
     padding: 75px auto;
     /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE AS YOUR BACKGROUND */
     
-    background: url(../images/Ocean.png) no-repeat center top scroll;
+    background: url(../w1.png) no-repeat center top scroll;
     /* background-color: #2980b9; */
     color: #FFF;
     
@@ -42,8 +42,7 @@
             padding: 100px 5px 20px 5px;
             
             h1 {
-                font-family: $glober;
-                font-weight: $normal;
+                font-weight: 300;
                 margin: 10px;
             }
             
@@ -59,7 +58,7 @@
             }
             
             span:nth-child(1) {
-                font-weight: $semibold;
+                font-weight: $light;
             }
             
             a {
