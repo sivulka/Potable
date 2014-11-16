@@ -301,12 +301,15 @@ h1, p {
         font-weight: 300;
         margin-bottom: 75px; }
       .mo-intro .container .content sub {
-        /* color: rgba(112, 212, 249, 1.0); */
+        color: #70d4f9;
         font-weight: 700; }
       .mo-intro .container .content span:nth-child(1) {
         font-weight: 600; }
       .mo-intro .container .content span:nth-child(2) {
         font-weight: 300; }
+        .mo-intro .container .content span:nth-child(2) span {
+          color: #70d4f9;
+          font-weight: 700; }
   .mo-intro .vertical {
     vertical-align: top; }
 

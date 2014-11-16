@@ -57,7 +57,7 @@
             }
             
             sub {
-                /* color: rgba(112, 212, 249, 1.0); */
+                color: rgba(112, 212, 249, 1.0);
                 font-weight: $bold;
             }
             
@@ -67,6 +67,10 @@
             
             span:nth-child(2) {
                 font-weight: $light;
+                span {
+                    color: rgba(112, 212, 249, 1.0);
+                    font-weight: $bold;
+                }
             }
         }
     }
