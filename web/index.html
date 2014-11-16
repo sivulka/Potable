@@ -53,6 +53,19 @@
                 });
             });
         </script>
+        
+        <style type="text/css">
+            svg {
+                background: #fff;
+            }
+
+            #india {
+                fill: lightgrey;
+                opacity: .8;
+                stroke: white ;
+                stroke-width: .7;
+            }
+        </style>
 </head>
 <body>
    <div id="landing" class="mo-intro">      
@@ -60,16 +73,76 @@
            <div class="content">
                <h1 class="title"><span>H<sub>2</sub>O</span><span>hSh<span>!</span>t</span></h1>
                <h2>Clean Water. Crowd Sourced.</h2>
-               <button class="btnClear" onclick="OnPageNavRequest('#landing', '#test')">Explore the Map</button>
+               <button class="btnClear" onclick="OnPageNavRequest('#landing', '#map')">Explore the Map</button>
+               <br>
+               <a onclick="OnPageNavRequest('#landing', '#map')">Or submit your experiences</a>
            </div>
        </div>
    </div>
-   <!--
-    <div class="ocean">   
-        <div id="ocean-top"><br></div>
-        <div class="water themes-dark-blue"></div>
-    </div>
-    -->
+   <div id="map" class="invisible no-display">
+       <div class="submitExperience">
+           <a href="" class="btnRed">
+               <i class="fa fa-plus fa-1x"></i>
+               <h5 class="inline">Review Your Experience</h5>
+           </a>
+       </div>
+       <div id="chart"></div>
+  
+   </div>
     <script src="js/page.js"></script>
+    <script type="text/javascript">
+        var w = 600;
+        var h = 600;
+        var proj = d3.geo.mercator();
+        var path = d3.geo.path().projection(proj);
+        var t = proj.translate(); // the projection's default translation
+        var s = proj.scale(); // the projection's default scale
+
+        var map = d3.select("#chart").append("svg:svg")
+            .attr("width", w)
+            .attr("height", h)
+        //        .call(d3.behavior.zoom().on("zoom", redraw))
+        .call(initialize);
+
+        var india = map.append("svg:g")
+            .attr("id", "india");
+
+
+
+        d3.json("json/indianstates.json", function (json) {
+        india.selectAll("path")
+            .data(json.features)
+            .enter().append("path")
+            .attr("d", path);
+    });
+
+
+        function initialize() {
+        proj.scale(6700);
+        proj.translate([-1240, 720]);
+    }
+
+
+        d3.json("json/water.json", function (json) {
+
+        svg.selectAll("circle")
+            .data(json.nodes)
+            .enter()
+            .append("circle")
+            .attr("cx", function (json) {
+            return projection([json.lon, json.lat])[0];
+        })
+            .attr("cy", function (json) {
+            return projection([json.lon, json.lat])[1];
+        })
+            .attr("r", function (json) {
+            return (json.complaints);
+        })
+            .style("fill", "black")
+            .style("opacity", 0.75);
+
+    });
+  </script>
+
 </body>
 </html>
