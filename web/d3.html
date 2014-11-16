@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 
 <html>
+<head><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script></head>
 <meta charset="utf-8">
 <style>
 path {
@@ -55,9 +56,17 @@ var scale =  d3.scale.linear().domain([1,2,3,4,5]).range("#3D5AFE","#00C853","#A
 
 // load and display the World
 d3.json("world.json", function(error, topology) {
+    
+    $.ajax({
+        url: "http://h2ohshit.azurewebsites.net/api/data",
+        type: "GET",
+        dataType: "json",
+    }).done(function(data) {
+        console.dir(data);
+    // });
 
 // load and display the water quality nodes
-d3.csv("csv/water.csv", function(error, data) {
+//d3.csv("csv/water.csv", function(error, data) {
     g.selectAll("circle")
        .data(data)
        .enter()
@@ -75,9 +84,9 @@ d3.csv("csv/water.csv", function(error, data) {
        .attr("r",  function(d){ 
                 return (d.complaints) * 0.03;
         })
-    .style("fill",function(d){
-            return scale(d);   
-    })
+    .style("fill", "#000") // function(d){
+//            return scale(d);   
+//    })
     .style("fill-opacity","0")
     .style("stroke-width","1")
        .style("stroke","rgba(200, 54, 54, 0.5)");
