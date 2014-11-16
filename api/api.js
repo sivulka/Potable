@@ -92,13 +92,13 @@ module.exports = function(app) {
 								if (obj && obj.data) {
 									var reviews = "";
 									for(var i=0; i<obj.data.length; i++) {
-										reviews += obj.data[i].text + "%%#%%";
+										reviews += filter(obj.data[i].text) + "%%#%%";
 									}
 									var insert = {
 										Latitude: parseFloat(result.latitude),
 										Longitude: parseFloat(result.longitude),
 										Quality: result.rating ? parseInt(result.rating) : -1,
-										Reviews: filter(reviews)
+										Reviews: reviews
 									}
 									// console.log("inserting...");
 									if (insert.Quality != -1) {
@@ -124,6 +124,7 @@ module.exports = function(app) {
 											});
 										} catch (e) {
 											// fuckit
+											callback();
 										}
 									}
 								}
@@ -142,23 +143,25 @@ module.exports = function(app) {
 		common.sql.connect(common.sql_config, function(err) {
 			if (err) {
 				res.send(err);
+			} else {
+				var req = new common.sql.Request();
+				req.stream = true;
+				req.query("SELECT * FROM records");
+
+				var results = [];
+				console.dir(err);
+
+				req.on("row", function(row) {
+					console.dir(row);
+					results.push(row);
+				});
+
+				req.on("done", function(result) {
+					console.log("[api/api.js] done fetching results.");
+					// res.send(convert_json_to_csv(results));
+					res.send(results);
+				});
 			}
-
-			var req = new common.sql.Request();
-			req.stream = true;
-			req.query("SELECT * FROM records");
-
-			var results = [];
-
-			req.on("row", function(row) {
-				results.push(row);
-			});
-
-			req.on("done", function(result) {
-				console.log("[api/api.js] done fetching results.");
-				// res.send(convert_json_to_csv(results));
-				res.send(results);
-			});
 		});
 	});
 };
@@ -169,6 +172,7 @@ var filter = function(text) {
 	result = result.replace("\r", "");
 	result = result.replace("'", "");
 	result = result.replace(/\W/g, " ");
+	result = result.replace(/\s{2,}/g, ' ');
 	return result;
 };
 
