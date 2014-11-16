@@ -55,15 +55,19 @@ module.exports = function(app) {
 					uri: uri,
 					method: "GET",
 					timeout: 3000,
-				}, function(err, res, body) {
+				}, function(err, res2, body) {
 					sleep(140000);
 					if (body) {
 						var obj = JSON.parse(body);
 						if (obj.data && obj.data.length != 0) {
 							for(var i=0; i<obj.data.length; i++) {
-								IDs.push(parseInt(obj.data[i].location_id));
+								if (!(IDs.indexOf(parseInt(obj.data[i].location_id)) == -1)) {
+
+								} else {
+									IDs.push(parseInt(obj.data[i].location_id));
+									results.push(obj.data[i]);
+								}
 							}
-							results = concat(results, obj.data);
 							console.log(IDs.length);
 						}
 					}
@@ -78,30 +82,57 @@ module.exports = function(app) {
 						request({
 							uri: "https://api.tripadvisor.com/api/partner/1.0/location/" + result.location_id + "/reviews?key=" + common.TA_Key,
 							method: "GET",
-							timeout: 3000,
-						}, function(err, res, body) {
+						}, function(err, res3, body) {
+							if (err) {
+								console.dir(err);
+							}
 							sleep(140000);
 							if (body) {
 								var obj = JSON.parse(body);
-								if (obj) {
+								if (obj && obj.data) {
 									var reviews = "";
 									for(var i=0; i<obj.data.length; i++) {
-										reviews += obj.data[i].text + "%%#%%";
+										reviews += filter(obj.data[i].text) + "%%#%%";
 									}
 									var insert = {
 										Latitude: parseFloat(result.latitude),
 										Longitude: parseFloat(result.longitude),
-										Quality: parseInt(result.rating),
+										Quality: result.rating ? parseInt(result.rating) : -1,
 										Reviews: reviews
 									}
-									// console.dir(insert);
-									
+									// console.log("inserting...");
+									if (insert.Quality != -1) {
+										try {
+											common.sql.connect(common.sql_config, function(err) {
+												if (err) {
+													console.dir(insert);
+													console.dir(err);
+													// fuck
+												} else {
+													var req = new common.sql.Request();
+													req.stream = true;
+													var query = "INSERT INTO records (ID, Latitude, Longitude, Quality, Reviews) VALUES ("+result.location_id+", "+insert.Latitude+", "+insert.Longitude+", "+insert.Quality+", '"+insert.Reviews+"')";
+													req.query(query);
+													console.log(query);
+
+													var results = [];
+													req.on("done", function(result) {
+														console.log("DONE MOTHERFUCKER");
+														callback();
+													});
+												}
+											});
+										} catch (e) {
+											// fuckit
+											callback();
+										}
+									}
 								}
 							}
-							callback();
 						});
 					}, function(err) {
 						console.log("DONE");
+						res.send("FUCKING DONE");
 					});
 				}
 			});
@@ -112,24 +143,37 @@ module.exports = function(app) {
 		common.sql.connect(common.sql_config, function(err) {
 			if (err) {
 				res.send(err);
+			} else {
+				var req = new common.sql.Request();
+				req.stream = true;
+				req.query("SELECT * FROM records");
+
+				var results = [];
+				console.dir(err);
+
+				req.on("row", function(row) {
+					console.dir(row);
+					results.push(row);
+				});
+
+				req.on("done", function(result) {
+					console.log("[api/api.js] done fetching results.");
+					res.send(convert_json_to_csv(results));
+					/// res.send(results);
+				});
 			}
-
-			var req = new common.sql.Request();
-			req.stream = true;
-			req.query("SELECT * FROM records");
-
-			var results = [];
-
-			req.on("row", function(row) {
-				results.push(row);
-			});
-
-			req.on("done", function(result) {
-				console.log("[api/api.js] done fetching results.");
-				res.send(convert_json_to_csv(results));
-			});
 		});
 	});
+};
+
+var filter = function(text) {
+	var result = text;
+	result = result.replace("\n", "");
+	result = result.replace("\r", "");
+	result = result.replace("'", "");
+	result = result.replace(/\W/g, " ");
+	result = result.replace(/\s{2,}/g, ' ');
+	return result;
 };
 
 var convert_json_to_csv = function(json) {
