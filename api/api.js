@@ -1,6 +1,18 @@
 var common = require("./common");
 var http = require("http");
 var async = require("async");
+var request = require("request");
+
+var concat = function(a, b) {
+	var result = [];
+	for(var i=0; i<a.length; i++) {
+		result.push(a[i]);
+	}
+	for(var i=0; i<b.length; i++) {
+		result.push(b[i]);
+	}
+	return result;
+}
 
 module.exports = function(app) {
 	app.get("/api", function(req, res) {
@@ -21,25 +33,35 @@ module.exports = function(app) {
 		var urls = [];
 		for(var lat=data.lat0; lat<=data.lat1; lat+=data.inc) {
 			for(var long=data.long0; long<=data.long1; long+=data.inc) {
-				urls.push({
-					host: "api.tripadvisor.com",
-					path: "/api/partner/1.0/map/" + lat + "," + long + "?key=" + common.TA_Key,
-				});
+				urls.push("https://api.tripadvisor.com/api/partner/1.0/map/" + lat + "," + long + "?key=" + common.TA_Key);
 			}
 		}
 		console.log("requesting "+urls.length+" urls");
 		var results = [];
-		async.each(urls, function(url, callback) {
-			http.request(url, function(result) {
-				results.push(result);
+		async.each(urls, function(uri, callback) {
+			request({
+				uri: uri,
+				method: "GET",
+				timeout: 3000,
+			}, function(err, res, body) {
+				var obj = JSON.parse(body);
+				results = concat(results, obj.data);
 				console.log(results.length);
 				callback();
 			});
+			/*http.request(url, function(result) {
+				result.on("data", function(chunk) {
+					results.push(chunk);
+					console.log(results.length);
+					callback();
+				});
+			});*/
 		}, function(err) {
 			if (err) {
 				console.log("shit");
 				res.send(err);
 			} else {
+				console.log("DONE");
 				res.send(results);
 			}
 		});
