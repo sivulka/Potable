@@ -39,7 +39,7 @@
     }
 }
 
-.form-text { @include textInput (rgba(250, 250, 250, 0.5), #1D1D1D, 100%, rgba(10, 10, 10, 0.5)) }
+.form-text { @include textInput (rgba(230, 230, 230, 0.5), #1D1D1D, 100%, rgba(10, 10, 10, 0.5)) }
 
 .form-text-inverse { @include textInput (rgba(10, 10, 10, 0.5), #F0F0F0, 100%, rgba(240, 240, 240, 0.5)) }
 
@@ -67,4 +67,52 @@
         }
     }
 }
+
+.form-experience {
+    width: 100%;
+    height: 100%;
+    
+    label {
+        margin-left: 15px;
+    }
+    a {
+        i {
+            color: #000;
+        }
+    }
+}
+
+.form-text-input {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: rgba(230, 230, 230, 0.5);
+    background-image: none;
+    border: none;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    &:focus {
+        outline: 0;
+    }
+    
+    &::-moz-placeholder {
+        color: #D0D0D0;
+        opacity: 1;
+    }
+    
+    &:-ms-input-placeholder {
+        color: #D0D0D0;
+    }
+    
+    &::-webkit-input-placeholder {
+        color: #D0D0D0;
+    }
+}
+
+
 

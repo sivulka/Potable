@@ -187,6 +187,15 @@ h1, p {
 .fixed {
   position: fixed; }
 
+max300 {
+  max-width: 300px; }
+
+max400 {
+  max-width: 400px; }
+
+max500 {
+  max-width: 500px; }
+
 /* Nav.scss */
 /* NAVIGATION BAR */
 .navigation-bar {
@@ -862,7 +871,7 @@ h1, p {
   width: 100%;
   margin: 0 5px;
   padding: 5px 15px;
-  background-color: rgba(250, 250, 250, 0.5);
+  background-color: rgba(230, 230, 230, 0.5);
   color: #1D1D1D;
   border: none;
   font-family: 'Open Sans', sans-serif;
@@ -927,6 +936,38 @@ h1, p {
     color: #FFF; }
   .contact-icon:hover .fa {
     color: #C6C6C6; }
+
+.form-experience {
+  width: 100%;
+  height: 100%; }
+  .form-experience label {
+    margin-left: 15px; }
+  .form-experience a i {
+    color: #000; }
+
+.form-text-input {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: rgba(230, 230, 230, 0.5);
+  background-image: none;
+  border: none;
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+  .form-text-input:focus {
+    outline: 0; }
+  .form-text-input::-moz-placeholder {
+    color: #D0D0D0;
+    opacity: 1; }
+  .form-text-input:-ms-input-placeholder {
+    color: #D0D0D0; }
+  .form-text-input::-webkit-input-placeholder {
+    color: #D0D0D0; }
 
 /* RESPONSIVE */
 @media screen and (min-width: 480px) {
