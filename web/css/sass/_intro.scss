@@ -26,9 +26,11 @@
     margin: 0;
     padding: 125px auto;
     /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE AS YOUR BACKGROUND */
-    background: url(../images/ms-bg.jpg) no-repeat center center scroll;
+    background: url(../images/OceanCover.png) no-repeat center center scroll;
     /*background-color: #1D1D1D;*/
     color: #FFF;
+    
+    background-size: cover;
     /* UNCOMMENT IF FULL SCREEN*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
