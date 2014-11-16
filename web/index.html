@@ -158,6 +158,8 @@
                <h6 class="inline">How's your water?</h6>
            </a>
        </div>
+       
+       <!-- LIAM -->
        <div id="chart"></div>
 
     </div>
@@ -174,22 +176,26 @@
                         <div class="form-group">
                             <label for="inputFirstName">&nbsp;Location</label>
                             <input id="searchBox" type="text" class="form-text-input" id="inputFirstName" placeholder="New York, NY, United States">
-                            <a class="btnRed btnGlobe"><i class="fa fa-globe"></i></a>
+                            <a class="btnRed btnGlobe" onclick="getLoc()"><i class="fa fa-globe"></i></a>
                             <div id="searchResult" class="ui-widget" style="margin-top: 1em;">
-        </div>
+        </div>        
+                            <label for="waterQ">&nbsp;Water Quality (1 worst, 5 best)</label>
+                            <div class="container">
+                            <input id="waterQ" type="hidden" class="rating" data-filled="glyphicon glyphicon-heart" data-empty="glyphicon glyphicon-heart-empty" style="margin-left: 250px;"/>
+                            </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btnPurple center" data-dismiss="modal">Submit</button>
+                    <button id="btnSubmit" type="button" class="btnPurple center" onclick="dataSubmit()">Submit</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <script src="js/page.js"></script>
-    
+    <script src="js/bootstrap-rating.min.js"></script>
     <script type="text/javascript">
-        
+        /* $(".rating").rating(); */
         function getLoc () {
             $(".nav").buttonset();
 
