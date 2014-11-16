@@ -182,71 +182,74 @@ module.exports = function(app) {
 	});
 
 	app.get("/api/print", function(req, res) {
+		res.setHeader('content-type', 'text/csv');
 		res.send(req.param("data"));
 	});
 
-	app.get("/api/a1", function(req, res) {
+	app.get("/api/data", function(req, res) {
 		fs.readFile("data/data.csv", {
 			encoding: "utf-8"
 		}, function(err, doc) {
 			var a = doc.split("\r\n");
-			for(var i=1; i<a.length; i++) {
-				var b = a[i].split(",");
-				var q = a[0] + "\r\n" + a[i];
+			var results = [];
+			var first = a.shift();
+			async.each(a, function(obj, callback) {
+				var b = obj.split(",");
+				var q = a[0] + "\r\n" + obj;
+				
+				var data =  {
+					"Id": "score00001",
+					"Instance": {
+						"FeatureVector": {
+						},
+						"GlobalParameters": {
+							"URL": "http://h2ohshit.azurewebsites.net/api/print?data=" + q,
+						}
+					}
+				};
 				request({
-					url: "/api/ml?data=" + q,
-					method: "GET",
+					url: "https://ussouthcentral.services.azureml.net/workspaces/a1ab8c987af3488abd87d0f11fb1d43e/services/646b58943b5f4ced8f291cd483cfcbf7/score",
+					method: "POST",
+					headers: {
+						"Authorization": "Bearer "+common.ML_Key,
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(data),
 				}, function(err, resp, body) {
-					console.dir(body);
+					if (err) {
+						callback();
+					} else {
+						// console.log("yey");
+						if (body) {
+							var obj = JSON.parse(body);
+							// console.dir(obj);
+							/* res.send({
+								number: parseInt(n),
+								data: obj
+							});
+							*/
+							var returned = {
+								lat: parseFloat(obj[1]),
+								lon: parseFloat(obj[2]),
+								quality: parseInt(obj[3]),
+								complaints: parseInt(obj[15])
+							};
+							console.log((a.length-1 - results.length) + " left");
+							results.push(returned);
+							callback();
+						} else {
+							callback();
+						}
+					}
 				});
-			}
+			}, function(result) {
+				console.log("DONE");
+				res.send(results);
+			});
 		});
 	});
 
 	app.get("/api/ml", function(req, res) {
-		var data =  {
-			"Id": "score00001",
-			"Instance": {
-				"FeatureVector": {
-				},
-				"GlobalParameters": {
-					"URL": "/api/print?data=" + req.param("data"),
-				}
-			}
-		};
-		request({
-			url: "https://ussouthcentral.services.azureml.net/workspaces/a1ab8c987af3488abd87d0f11fb1d43e/services/646b58943b5f4ced8f291cd483cfcbf7/score",
-			method: "POST",
-			headers: {
-				"Authorization": "Bearer "+common.ML_Key,
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data)
-		}, function(err, resp, body) {
-			if (err) {
-				console.log("shit");
-				console.dir(err);
-			} else {
-				// console.log("yey");
-				if (body) {
-					var obj = JSON.parse(body);
-					// console.dir(obj);
-					/* res.send({
-						number: parseInt(n),
-						data: obj
-					});
-					*/
-					var returned = {
-						lat: parseFloat(obj[1]),
-						lon: parseFloat(obj[2]),
-						quality: parseInt(obj[3]),
-						complaints: parseInt(obj[15])
-					};
-					res.send([returned]);
-					return;
-				}
-			}
-		});
 	});
 };
 
