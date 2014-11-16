@@ -1,3 +1,5 @@
+var common = require("./common");
+
 module.exports = function(app) {
 	app.get("/api", function(req, res) {
 		res.send({
@@ -5,4 +7,6 @@ module.exports = function(app) {
 			message: "The API is up and running! :)"
 		});
 	});
+
+	
 };
