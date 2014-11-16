@@ -29,7 +29,7 @@ module.exports = function(app) {
 			lat1: req.param("lat1"),
 			long0: req.param("long0"),
 			long1: req.param("long1"),
-			inc: 0.5,
+			inc: 1,
 		};
 		console.dir(data);
 		if (!(data.lat0 && data.lat1 && data.long0 && data.long1)) {
