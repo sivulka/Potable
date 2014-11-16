@@ -158,8 +158,8 @@ module.exports = function(app) {
 
 				req.on("done", function(result) {
 					console.log("[api/api.js] done fetching results.");
-					// res.send(convert_json_to_csv(results));
-					res.send(results);
+					res.send(convert_json_to_csv(results));
+					/// res.send(results);
 				});
 			}
 		});
