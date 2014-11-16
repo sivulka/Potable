@@ -3,6 +3,7 @@ var http = require("http");
 var async = require("async");
 var request = require("request");
 var sleep = require("sleep").usleep;
+var fs = require("fs");
 
 var concat = function(a, b) {
 	var result = [];
@@ -81,6 +82,7 @@ module.exports = function(app) {
 					console.log("shit");
 					res.send(err);
 				} else {
+					var SHIT = [];
 					async.each(results, function(result, callback) {
 						request({
 							uri: "https://api.tripadvisor.com/api/partner/1.0/location/" + result.location_id + "/reviews?key=" + common.TA_Key,
@@ -105,6 +107,9 @@ module.exports = function(app) {
 										Reviews: reviews
 									}
 									console.log("inserting...");
+									SHIT.push(insert);
+									callback();
+									/*
 									if (insert.Quality != -1) {
 										try {
 											common.sql.connect(common.sql_config, function(err) {
@@ -130,13 +135,17 @@ module.exports = function(app) {
 											// fuckit
 											callback();
 										}
-									}
+									}*/
+								} else {
+									callback();
 								}
+							} else {
+								callback();
 							}
 						});
 					}, function(err) {
 						console.log("DONE");
-						res.send("FUCKING DONE");
+						res.send(convert_json_to_csv(SHIT));
 					});
 				}
 			});
@@ -153,15 +162,17 @@ module.exports = function(app) {
 				req.query("SELECT * FROM records");
 
 				var results = [];
-				console.dir(err);
 
 				req.on("row", function(row) {
-					console.dir(row);
 					results.push(row);
 				});
 
 				req.on("done", function(result) {
 					console.log("[api/api.js] done fetching results.");
+					console.dir(results);
+					for(var i=0; i<results.length; i++) {
+
+					}
 					res.setHeader('content-type', 'text/csv');
 					res.send(convert_json_to_csv(results));
 					/// res.send(results);
@@ -170,15 +181,36 @@ module.exports = function(app) {
 		});
 	});
 
-	app.get("/api/data", function(req, res) {
-		var n = (req.param("number") ? pad(parseInt(req.param("number")), 5) : "00001");
+	app.get("/api/print", function(req, res) {
+		res.send(req.param("data"));
+	});
+
+	app.get("/api/a1", function(req, res) {
+		fs.readFile("data/data.csv", {
+			encoding: "utf-8"
+		}, function(err, doc) {
+			var a = doc.split("\r\n");
+			for(var i=1; i<a.length; i++) {
+				var b = a[i].split(",");
+				var q = a[0] + "\r\n" + a[i];
+				request({
+					url: "/api/ml?data=" + q,
+					method: "GET",
+				}, function(err, resp, body) {
+					console.dir(body);
+				});
+			}
+		});
+	});
+
+	app.get("/api/ml", function(req, res) {
 		var data =  {
-			"Id": "score" + n,
+			"Id": "score00001",
 			"Instance": {
 				"FeatureVector": {
 				},
 				"GlobalParameters": {
-					"URL": "",
+					"URL": "/api/print?data=" + req.param("data"),
 				}
 			}
 		};
