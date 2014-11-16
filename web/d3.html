@@ -1,64 +1,58 @@
+
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>D3: Scaling the circles by data value</title>
-		<script type="text/javascript" src="d3.min.js"></script>
-		    <script type="text/javascript" src="d3.geo.min.js"></script>
-		<style type="text/css">
-			   svg {
-      background: #fff;
-      }
-      
-    #india {
-      fill: lightgrey;
-      opacity: .8;
-      stroke: white ;
-      stroke-width: .7;
-      }
-		</style>
-	</head>
-	<body>
-		<script type="text/javascript">
-			//Width and height
-			var w = 600;
-			var h = 600;
-			//Define map projection
-			var proj = d3.geo.mercator()
-			//Define path generator
-			var path = d3.geo.path()
-							 .projection(proj);
-             var t = proj.translate(); 
-            // the projection'z default translation
-            var s = proj.scale() 
-            // the projection's default scale
-							 
-			//Define quantize scale to sort data values into buckets of color
-			var color = d3.scale.quantize()
-.range(["rgb(237,248,233)","rgb(186,228,179)","rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"]);
-								//Colors taken from colorbrewer.js, included in the D3 download
-			//Create SVG element
-			var svg = d3.select("body")
-						.append("svg")
-						.attr("width", w)
-						.attr("height", h)
-                        .call(initialize);
-            
-            
-				//Load in GeoJSON data          
-				d3.json("json/indianstates.json", function(json) {
-						
-					//Bind data and create one path per GeoJSON feature
-					svg.selectAll("path")
-					   .data(json.features)
-					   .enter()
-					   .append("path")
-					   .attr("d", path);
-					   });
-					//Load in points data
-            
-               
-			
-		</script>
-	</body>
+
+<html>
+<meta charset="utf-8">
+<style>
+path {
+  stroke: white;
+  stroke-width: 0.5px;
+  fill: lightgrey;
+  opacity:0.75;
+}
+</style>
+<body>
+<script src="d3.v3.min.js"></script>
+<script src="topojson.v0.min.js"></script>
+<script>
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.mercator()
+    .center([3, 3 ])
+    .scale(150)
+    .rotate([-180,0]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var g = svg.append("g");
+
+// load and display the World
+d3.json("world.json", function(error, topology) {
+    g.selectAll("path")
+      .data(topojson.object(topology, topology.objects.countries)
+          .geometries)
+    .enter()
+      .append("path")
+      .attr("d", path)
+});
+
+// zoom and pan
+var zoom = d3.behavior.zoom()
+    .on("zoom",function() {
+        g.attr("transform","translate("+ 
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+        g.selectAll("path")  
+            .attr("d", path.projection(projection)); 
+  });
+
+svg.call(zoom)
+
+</script>
+</body>
 </html>

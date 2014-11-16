@@ -19,6 +19,15 @@
       stroke: white ;
       stroke-width: .7;
       }
+        
+    #points{
+        fill:black;
+        
+        
+        
+        
+        
+    }
     </style>
   </head>
   
@@ -51,32 +60,35 @@
     });
 
 
-    function initialize() {
-        proj.scale(6700);
-        proj.translate([-1240, 720]);
-    }
+ 
+      
+      
+      
 
+      var points = map.append("svg:g")
+        .attr("id","points")
 
     d3.json("json/water.json", function (json) {
 
-        svg.selectAll("circle")
-            .data(json.nodes)
+        points.selectAll("nodes")
+            .data(data)
             .enter()
             .append("circle")
             .attr("cx", function (json) {
-            return projection([json.lon, json.lat])[0];
+            return projection([json.longitude, json.latitude])[0];
         })
             .attr("cy", function (json) {
-            return projection([json.lon, json.lat])[1];
+            return projection([json.longitude, json.latitude])[1];
         })
-            .attr("r", function (json) {
-            return (json.complaints);
-        })
+            .attr("r", (json.complaints))
             .style("fill", "black")
             .style("opacity", 0.75);
 
     });
-      
+         function initialize() {
+        proj.scale(6700);
+        proj.translate([-1240, 720]);
+    }
     
 
 
