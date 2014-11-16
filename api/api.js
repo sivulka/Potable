@@ -165,6 +165,41 @@ module.exports = function(app) {
 			}
 		});
 	});
+
+	app.get("/api/data", function(req, res) {
+		var data =  {
+			"Id": "score00001",
+			"Instance": {
+				"FeatureVector": {
+				},
+				"GlobalParameters": {
+					"URL": "",
+				}
+			}
+		};
+		request({
+			url: "https://ussouthcentral.services.azureml.net/workspaces/a1ab8c987af3488abd87d0f11fb1d43e/services/646b58943b5f4ced8f291cd483cfcbf7/score",
+			method: "POST",
+			headers: {
+				"Authorization": "Bearer "+common.ML_Key,
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data)
+		}, function(err, resp, body) {
+			if (err) {
+				console.log("shit");
+				console.dir(err);
+			} else {
+				// console.log("yey");
+				if (body) {
+					var obj = JSON.parse(body);
+					// console.dir(obj);
+					res.send(obj);
+					return;
+				}
+			}
+		});
+	});
 };
 
 var filter = function(text) {
