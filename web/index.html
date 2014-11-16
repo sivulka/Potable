@@ -66,6 +66,67 @@
                 stroke-width: .7;
             }
         </style>
+        
+        
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js" type="text/javascript"></script>
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
+       
+       
+        <style type="text/css">
+        .ui-autocomplete-loading
+        {
+            background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
+        }
+        #searchBox
+        {
+            width: 25em;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#searchBox").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "http://dev.virtualearth.net/REST/v1/Locations",
+                        dataType: "jsonp",
+                        data: {
+                            key: "Av82i_sVoOskWa8zD-NAxVNI6aXi4-QbbMl4xoWBFQ35Mpwc8q-DzL4ObG9AskAv",
+                            q: request.term
+                        },
+                        jsonp: "jsonp",
+                        success: function (data) {
+                            var result = data.resourceSets[0];
+                            if (result) {
+                                if (result.estimatedTotal > 0) {
+                                    response($.map(result.resources, function (item) {
+                                        return {
+                                            data: item,
+                                            label: item.name + ' (' + item.address.countryRegion + ')',
+                                            value: item.name
+                                        }
+                                    }));
+                                }
+                            }
+                        }
+                    });
+                },
+                minLength: 1,
+                change: function (event, ui) {
+                    if (!ui.item)
+                        $("#searchBox").val('');
+                },
+                select: function (event, ui) {
+                    displaySelectedItem(ui.item.data);
+                }
+            });
+        });
+
+        function displaySelectedItem(item) {
+            $("#searchResult").empty().append('Result: ' + item.name).append(' (Latitude: ' + item.point.coordinates[0] + ' Longitude: ' + item.point.coordinates[1] + ')');
+        }
+    </script>
+    
 </head>
 <body>
    <div id="landing" class="mo-intro">      
@@ -83,7 +144,7 @@
        <div class="submitExperience">
            <a class="btnRed" data-toggle="modal" data-target="#experienceForm">
                <i class="fa fa-plus fa-1x"></i>
-               <h6 class="inline">Review Your Experience</h6>
+               <h6 class="inline">How's your water?</h6>
            </a>
        </div>
        <div id="chart"></div>
@@ -101,7 +162,10 @@
                 <form role="form" class="">
                         <div class="form-group">
                             <label for="inputFirstName">&nbsp;Location</label>
-                            <input type="text" class="form-text-input" id="inputFirstName" placeholder="New York, NY, United States">
+                            <input id="searchBox" type="text" class="form-text-input" id="inputFirstName" placeholder="New York, NY, United States">
+                            <a class="btnRed btnGlobe"><i class="fa fa-globe"></i></a>
+                            <div id="searchResult" class="ui-widget" style="margin-top: 1em;">
+        </div>
                         </div>
                     </form>
                 </div>
