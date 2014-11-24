@@ -4,7 +4,6 @@
 <html lang="en">
 <head>
     <title>H2OhSh!t</title>
-
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Compatibility? -->
@@ -49,7 +48,6 @@
         <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="js/jquery.plusanchor.js"></script>
         <script type="text/javascript">
-            //Readies the function
             $(document).ready(function(){
                 $('body').plusAnchor({
                     easing: 'easeInOutExpo',
@@ -57,7 +55,7 @@
                 });
             });
         </script>
-        <!-- Styling for the map -->
+        
         <style type="text/css">
             svg {
                 background: #fff;
@@ -89,7 +87,6 @@
     <script type="text/javascript" src="http://code.jquerygeo.com/jquery.geo-1.0b1.min.js"></script>
 
     <script type="text/javascript">
-        
         $(document).ready(function () {
             getLoc();
             $("#searchBox").autocomplete({
@@ -170,7 +167,6 @@ path {
   stroke-width: 0.25px;
   fill: grey;
 }
-    <!-- Colours for the map -->
 .q0-9 { fill:rgb(247,251,255); }
 .q1-9 { fill:rgb(222,235,247); }
 .q2-9 { fill:rgb(198,219,239); }
@@ -194,34 +190,24 @@ path { -moz-box-shadow: -5px -5px 5px #000;
 <script src="d3.v3.min.js"></script>
 <script src="topojson.v0.min.js"></script>
 <script>
-    //Sets the width and height for the map
 var width = 960,
     height = 500;
-    
-    //Sets the projection type for the map (mercator projection)
+
 var projection = d3.geo.mercator()
     .center([0, 5 ])
     .scale(200)
     .rotate([-180,0]);
 
-    
-    //Adds and SVG to the body
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-    
-//Creates a path
 var path = d3.geo.path()
     .projection(projection);
 
-    //Appends the g to the svg
 var g = svg.append("g");
     
-    //Sets a linear scale type to be used for coloration
-var scale =  d3.scale.linear()
-        .domain([1,2,3,4,5])
-        .range("#3D5AFE","#00C853","#AFB42B","#FF8F00","#D50000");
+var scale =  d3.scale.linear().domain([1,2,3,4,5]).range("#3D5AFE","#00C853","#AFB42B","#FF8F00","#D50000");
 
 
 // load and display the World
@@ -244,10 +230,8 @@ d3.json("world.json", function(error, topology) {
 //				  .attr("xlink:href", function(d) {
 //					  return "https://www.google.com/search?q="+d.city;}
 //				  )
-    //We append a circle
        .append("circle")
        .attr("cx", function(d) {
-        //Place is on the proper spot on the d3 projection
         console.dir(d);
                return projection([d.lon, d.lat])[0];
        })
@@ -257,7 +241,6 @@ d3.json("world.json", function(error, topology) {
        .attr("r",  function(d){ 
                 return (d.complaints) * 0.03;
         })
-    //Style it up
     .style("fill", "#000") // function(d){
 //            return scale(d);   
 //    })
