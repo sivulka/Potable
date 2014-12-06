@@ -1,0 +1,219 @@
+USING JAVASCRRIPT FUNCTIONS
+1.
+2.
+3.
+
+
+d3 has two ways to select DOM elements
+
+    d3 selections use css3 selecctors
+    
+    
+    
+    
+    
+    d3.select()- tretuns the first DOM element it finds int he tree structure matching the selector
+    
+    
+    
+    d3.selectAll()- returns an array of all the DOM elements it find in the tree sturcture matching the selector 
+    
+    
+    
+    
+    CSS Selectors
+    what you put in the parenths for d3 selection functions
+        #foo
+        .foo
+        foo
+        [foo=bar]- tags
+        and nested tags
+        
+        
+    d3.select(afsdfs).selectAll(adsfasdf);    - selects all  
+    
+    
+    
+    
+    
+you can select things
+        NOW create things
+        
+        
+        
+d3.select().append("xxx")
+    appends an <xxx> </xxx> tag in the last element you selected using the selection 
+        
+d3.select().insert("ads","adfasd")
+    inserts the second specified tag in the first specified tag
+
+d3.selection.attr("attribute","value")
+- is a setter getter
+-either sets values or gives what is preset there
+
+
+
+
+
+
+.attr("style","font-size:24px;");
+
+INSTEAD JUST DO .STYLE
+
+.style("fontsize:24px");
+
+
+
+
+
+
+
+To Add text to the attributes
+
+d3.select("div").text("D3 Meetup")
+
+
+
+
+
+
+
+
+
+
+
+Removing Elements
+
+
+d3.selectAll("div").remove();
+
+    removes all the div elements
+
+
+
+
+
+
+DATA DRIVEN BUILDING BLOCKS
+
+.data OPERATOR
+
+    takes dat and binds it to DOM elements
+    
+    d3.selection.data([])
+        binds one object as an element for each selection defined
+        
+        
+        
+        
+        
+        only if the data points === the amount of divs
+        
+        
+    WHAT IF WE HAVE DISPARATE NUMBERS
+        
+        if we have 0 DOM elements that we are trying to match with data
+        
+                    .update- empty
+                    .enter- NON EMPTY
+                    .exit- empty
+                    
+        if we have more data than DOM elements
+        
+                    .update- NON EMPTY
+                    .enter- NON EMPTY
+                    .exit- empty
+                    
+        if we have DOMs= data
+                    .update- NONEMPTY
+                    rest- empty
+                    
+        
+        
+        incoming data- enter selection 
+        
+        current data- update selection
+                    
+        stale data- exit selection
+                    
+d3.select(adsffasdf).enter().append("p")
+
+takes all placeholder objects and smashed them together
+basically creates new eleement in the parens that have the data in enter         
+        
+        
+        
+        d = data bound to an element
+        i= number of the things index in the selection 
+        
+        
+        
+REMOVING STALE DOMs
+
+    var oldDivs = virtualSelection.exit()
+    oldDivs.attr("old-attr", "stale")
+    oldDivs.remove()
+    
+    
+    
+*************You can make all of this a java function- so that when new data comes in the visualization changes!*********
+
+
+AJAX- load html then java script.... LOOK AT THESE SLIDES
+
+bl.ocks.org-   linked to github
+
+bl.ocksplorer.org
+
+
+LOOK AT DATA JOIN SCENARIOS 
+    examples
+    
+    
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+    selection.data(dataset)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
