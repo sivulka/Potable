@@ -44,7 +44,7 @@
     $h6: 0.85em;
     $p: 1.2em;
     
-    $title: 3.3em;
+    $title: 5em;
     $starter: 2.5em;
 
     /* NOTE: Mod stands for modifier */
@@ -56,7 +56,7 @@
     $h6-mod: 0.01em;
     $p-mod: 0.01em;
 
-    $title-mod: 0.8em;
+    $title-mod: 0.7em;
     $starter-mod: 0.3em;
 
     /* Margins */
@@ -118,7 +118,7 @@ p { @include font ($p - $p-mod, 0); }
 
 /* Extra Font Classes */
 .title { @include font ($title - $title-mod, 0); }
-.title { @include font ($starter - $starter-mod, 0); }
+/* .title { @include font ($starter - $starter-mod, 0); } */
 
 h1, h2, h3, h4, h5, h6, p {
     /* font-family: "Glober", sans-serif; */
