@@ -84,6 +84,13 @@ table {
 overflow:hidden !important;
 
 }
+    
+.q1{fill:rgba(52, 152, 219,0.7);}
+.q2{fill:rgba(26, 188, 156,0.7);}
+.q3{fill:rgba(241, 196, 15,0.7);}
+.q4{fill:rgba(211, 84, 0,0.7);}
+.q5{fill:rgba(192, 57, 43,0.7);}
+    
 </style>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -94,7 +101,7 @@ var width = $(window).width();
     height = $(window).height();
 
 var projection = d3.geo.mercator()
-    .translate([0, 0])
+    .translate([0, 150])
     .scale(width / 2 / Math.PI);
     
 
@@ -121,7 +128,7 @@ svg.append("rect")
     .attr("width", width)
     .attr("height", height);
 
-d3.json("world-50m.json", function(error, world) {
+d3.json("world.json", function(error, world) {
   g.append("path")
       .datum(topojson.feature(world, world.objects.countries))
       .attr("class", "land")
@@ -133,6 +140,41 @@ d3.json("world-50m.json", function(error, world) {
       .attr("d", path);
 });
 
+d3.csv("csv/water.csv", function(error, data) {
+    g.selectAll("circle")
+       .data(data)
+       .enter()
+//       .append("a")
+//				  .attr("xlink:href", function(d) {
+//					  return "https://www.google.com/search?q="+d.city;}
+//				  )
+       .append("circle")
+       .attr("cx", function(d) {
+               return projection([d.lon, d.lat])[0];
+       })
+       .attr("cy", function(d) {
+               return projection([d.lon, d.lat])[1];
+       })
+       .attr("r",  function(d){ 
+                return (d.complaints) * 0.1;
+       })
+       .attr("class", function(d){
+            return "q"+(d.quality);
+           
+            })    
+    
+     
+//    })
+//    .style("fill-opacity","0")
+//    .style("stroke-width","1")
+//     .style("stroke","rgba(200, 54, 54, 0.5)");
+    
+    
+    });
+
+    
+    
+    
 function move() {
   var t = d3.event.translate,
       s = d3.event.scale;
