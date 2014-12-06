@@ -949,6 +949,7 @@ max500 {
   display: inline;
   width: 75%;
   height: 34px;
+  margin-top: -5px;
   margin-left: 25px;
   padding: 6px 12px;
   font-size: 14px;
@@ -970,15 +971,22 @@ max500 {
   .form-text-input::-webkit-input-placeholder {
     color: #D0D0D0; }
 
-.btnGlobe {
-  display: inline;
-  width: 34px;
-  height: 34px;
-  line-height: 44px;
-  padding-top: 3px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px; }
+.globeContainer {
+  display: inline-block; }
+  .globeContainer .btnGlobe {
+    display: inline;
+    width: 34px;
+    height: 34px;
+    line-height: 44px;
+    margin-top: 25px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: -15px; }
+
+#waterHearts {
+  padding-left: 25px; }
 
 /* RESPONSIVE */
 @media screen and (min-width: 480px) {
