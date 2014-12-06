@@ -143,12 +143,8 @@
     
 </head>
 <body>
-<<<<<<< HEAD
-   <div id="landing" class="mo-intro"> 
-=======
-   <div id="landing" class="mo-intro">      
->>>>>>> c3a1219cc8052e4670fb0beef8fcfca8a4a46def
-       <div class="container">
+    <div id="landing" class="mo-intro"> 
+        <div class="container">
            <div class="content">
                <h1 class="title">Potable</h1>
                <h2>Clean Water. Crowd Sourced.</h2>
@@ -156,19 +152,15 @@
                <br><br>
                <a onclick="OnModalPageRequest('#landing', '#map', '#experienceForm')">Or share your experiences</a>
            </div>
-       </div>
-   </div>
+        </div>
+    </div>
     <div id="map" class="invisible no-display">
-<<<<<<< HEAD
         <div class="submitExperience">
-=======
-       <div class="submitExperience">
->>>>>>> c3a1219cc8052e4670fb0beef8fcfca8a4a46def
            <a class="btnRed" data-toggle="modal" data-target="#experienceForm">
                <i class="fa fa-plus fa-1x"></i>
                <h6 class="inline">How's your water?</h6>
            </a>
-       </div>
+        </div>
        
        <!-- LIAM -->
        <meta charset="utf-8">
@@ -306,7 +298,7 @@ svg.call(zoom)
                             </div>
                             <div id="searchResult" class="ui-widget" style="margin-top: 1em;">
         </div>        
-                            <label for="waterQ">&nbsp;Water Quality (1 worst, 5 best)</label>
+                            <label for="waterQ">&nbsp;Water Quality</label>
                             <div id="waterHearts" class="container">
                                 <input id="waterHeart-act" class="rating" data-min="0" data-max="5" data-size="xs">
                             </div>
@@ -324,8 +316,8 @@ svg.call(zoom)
     </script>
     <script>
         $("#waterHeart-act").rating({
-            starCaptions: {0.5: "Extremely contaminated", 1: "Very contaminated", 1: "Badly contaminated", 1.5: "Evidently contaminated", 2: "Contaminated", 2: "Slightly contaminated", 3: "Not contaminated", 3.5: "Unsure", 4: "Clean", 4: "Very clean", 5: "Extremely Clean"},
-            starCaptionClasses: {1: "text-danger", 2: "text-warning", 3: "text-info", 4: "text-primary", 5: "text-success"},
+            starCaptions: {0.5: "Extremely contaminated", 1: "Very contaminated", 1: "Badly contaminated", 1.5: "Evidently contaminated", 2: "Contaminated", 2.5: "Slightly contaminated", 3: "Not contaminated", 3.5: "Unsure", 4: "Clean", 4: "Very clean", 4.5: "Extremely clean", 5: "Super Clean"},
+            starCaptionClasses: { 0: "text-info", 0.5: "text-danger", 1: "text-danger", 1.5: "text-danger", 2: "text-warning", 2.5: "text-warning", 3: "text-info", 3.5: "text-info", 4: "text-success", 4.5: "text-primary", 5: "text-primary"},
         });
     </script>
     <script type="text/javascript">

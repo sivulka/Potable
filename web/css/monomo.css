@@ -936,6 +936,10 @@ max500 {
   .contact-icon:hover .fa {
     color: #C6C6C6; }
 
+#experienceForm .modal-title {
+  margin-top: 25px;
+  margin-left: 25px; }
+
 .form-group {
   width: 100%;
   height: 100%; }
@@ -987,6 +991,11 @@ max500 {
 
 #waterHearts {
   padding-left: 25px; }
+  #waterHearts .clear-rating {
+    display: none; }
+  #waterHearts .caption {
+    display: block;
+    text-align: left; }
 
 /* RESPONSIVE */
 @media screen and (min-width: 480px) {
