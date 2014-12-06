@@ -93,13 +93,9 @@ p {
 .title {
   margin: margin;
   padding: 0;
-  font-size: 2.5em; }
+  font-size: 4.3em; }
 
-.title {
-  margin: margin;
-  padding: 0;
-  font-size: 2.2em; }
-
+/* .title { @include font ($starter - $starter-mod, 0); } */
 h1, h2, h3, h4, h5, h6, p {
   /* font-family: "Glober", sans-serif; */
   margin: 0;
@@ -272,6 +268,7 @@ max500 {
   width: 100%;
   /* CHANGE VALUE IF FULL SCREEN */
   height: 100%;
+  padding: 0;
   /*
   z-index: -999;
   */
@@ -308,6 +305,7 @@ max500 {
         font-weight: 300; }
       .mo-intro .container .content a {
         color: #D0D0D0;
+        cursor: pointer;
         transition: all 200ms ease-in-out 0s;
         -o-transition: all 200ms ease-in-out 0s;
         -moz-transition: all 200ms ease-in-out 0s;
@@ -1022,7 +1020,7 @@ max500 {
   .title {
     margin: margin;
     padding: 0;
-    font-size: 3.3em; }
+    font-size: 5em; }
 
   .starter {
     margin: margin;
@@ -1067,7 +1065,7 @@ max500 {
   .title {
     margin: margin;
     padding: 0;
-    font-size: 4.1em; }
+    font-size: 5.7em; }
 
   .starter {
     margin: margin;
@@ -1112,7 +1110,7 @@ max500 {
   .title {
     margin: margin;
     padding: 0;
-    font-size: 4.9em; }
+    font-size: 6.4em; }
 
   .starter {
     margin: margin;
@@ -1157,7 +1155,7 @@ max500 {
   .title {
     margin: margin;
     padding: 0;
-    font-size: 5.7em; }
+    font-size: 7.1em; }
 
   .starter {
     margin: margin;
@@ -1202,7 +1200,7 @@ max500 {
   .title {
     margin: margin;
     padding: 0;
-    font-size: 6.5em; }
+    font-size: 7.8em; }
 
   .starter {
     margin: margin;
@@ -1247,7 +1245,7 @@ max500 {
   .title {
     margin: margin;
     padding: 0;
-    font-size: 7.3em; }
+    font-size: 8.5em; }
 
   .starter {
     margin: margin;
@@ -1292,7 +1290,7 @@ max500 {
   .title {
     margin: margin;
     padding: 0;
-    font-size: 8.1em; }
+    font-size: 9.2em; }
 
   .starter {
     margin: margin;
