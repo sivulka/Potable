@@ -18,6 +18,9 @@
         <link href="css/metro-bootstrap.css" rel="stylesheet">
         <script src="js/metro.min.js" type="text/javascript"></script>
         
+        <!-- jQuery Rating -->
+        <link href="css/star-rating.min.css" rel="stylesheet">
+        
         <!-- Pure -->
         <link href="css/pure.css">
         <!--[if lte IE 8]>
@@ -269,12 +272,16 @@ svg.call(zoom)
                         <div class="form-group">
                             <label for="inputFirstName">&nbsp;Location</label>
                             <input id="searchBox" type="text" class="form-text-input" id="inputFirstName" placeholder="New York, NY, United States">
-                            <a class="btnRed btnGlobe" onclick="getLoc()"><i class="fa fa-globe"></i></a>
+                            <div class="globeContainer">
+                                <a class="btnRed btnGlobe" onclick="getLoc()">
+                                    <i class="fa fa-globe"></i>
+                                </a>
+                            </div>
                             <div id="searchResult" class="ui-widget" style="margin-top: 1em;">
         </div>        
-                            <label for="waterQ">&nbsp;Water Quality (1 worst, 5 best)</label>
-                            <div class="container">
-                            <input id="waterQ" type="hidden" class="rating" data-filled="glyphicon glyphicon-heart" data-empty="glyphicon glyphicon-heart-empty" style="margin-left: 250px;"/>
+                            <label for="waterQ">&nbsp;Water Quality</label>
+                            <div id="waterHearts" class="container">
+                                <input id="waterHeart-act" class="rating" data-min="0" data-max="5" data-size="xs">
                             </div>
                         </div>
                     </form>
@@ -285,8 +292,19 @@ svg.call(zoom)
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    
     <script src="js/page.js"></script>
     <script src="js/bootstrap-rating.min.js"></script>
+    <script src="js/star-rating.min.js"></script>
+    <!--- RATING SCRIPT --->
+    <script>
+        $("#waterHeart-act").rating({
+            starCaptions: {0.5: "Extremely contaminated", 1: "Very contaminated", 1: "Badly contaminated", 1.5: "Evidently contaminated", 2: "Contaminated", 2.5: "Slightly contaminated", 3: "Not contaminated", 3.5: "Unsure", 4: "Clean", 4: "Very clean", 4.5: "Extremely clean", 5: "Super Clean"},
+            starCaptionClasses: { 0: "text-info", 0.5: "text-danger", 1: "text-danger", 1.5: "text-danger", 2: "text-warning", 2.5: "text-warning", 3: "text-info", 3.5: "text-info", 4: "text-success", 4.5: "text-primary", 5: "text-primary"},
+        });
+    </script>
+    
+    <!-- GEO SCRIPT -->
     <script type="text/javascript">
         /* $(".rating").rating(); */
         function getLoc () {

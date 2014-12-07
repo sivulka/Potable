@@ -293,7 +293,8 @@ max500 {
       padding: 100px 5px 20px 5px; }
       .mo-intro .container .content h1 {
         font-weight: 300;
-        margin: 10px; }
+        margin: 10px;
+        margin-bottom: 0; }
       .mo-intro .container .content h2 {
         font-family: "Open Sans", sans-serif;
         font-weight: 300;
