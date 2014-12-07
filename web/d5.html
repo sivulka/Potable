@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 
 <html>
-<head><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script></head>
+<head><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
 <meta charset="utf-8">
 <style>
 
@@ -140,6 +144,7 @@ d3.json("world.json", function(error, world) {
       .attr("d", path);
 });
 
+setInterval(function(){}, 1000)
 d3.csv("csv/water.csv", function(error, data) {
     g.selectAll("circle")
        .data(data)
@@ -171,6 +176,7 @@ d3.csv("csv/water.csv", function(error, data) {
     
     
     });
+
 
     
     
@@ -223,3 +229,17 @@ function move() {
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    
+   
+  
+ 
+<!--    
+    $.ajax({
+        url: "/api/data",
+        type: "GET",
+        dataType: "json",
+    }).done(function(data) {
+    /// })
+// load and display the water quality nodes
+// d3.csv("csv/water.csv", function(error, data) {
+  console.dir(data);  -->
